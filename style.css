@@ -1,0 +1,29 @@
+html{
+    box-sizing: border-box;
+    height: 100%;
+}
+
+*
+*::before
+*::after{
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    align-items: center;
+    display: flex;
+    font-family: Arial, Helvetica, sans-serif;
+    font-display: swap;
+    height: inherit;
+    justify-content: center;
+}
+
+.wrapper{
+    border-radius: 16px;
+    border: 1px solid rgb(0, 0, 0);
+    flex-basis: 400px;
+    height: 500px;
+    padding: 10px 25px;
+}
