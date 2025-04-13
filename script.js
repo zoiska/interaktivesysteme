@@ -3,7 +3,7 @@ let currencyPerClick = 1
 
 function init() {
     const clicker = document.querySelector("#clickableArea");
-    const display = document.querySelector("#currencyDisplay");
+    const display = document.querySelector("#currency");
   
     clicker.addEventListener("click", () => {
       mainCurrencyCounter += currencyPerClick;
