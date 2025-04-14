@@ -31,6 +31,7 @@
 - Progress bar, graph or other evolution (callback to visual changes)
 - Random events?
 - Stats?
+- Prestige System: Permanent Upgrades and Cosmetics
 
 ---
 
@@ -41,3 +42,4 @@
 - Mystery and Lore (might be a bust)
 - Progress Satisfaction: "celebration" for moments and milestones, visual elements(callback to progress bars), sounds ("Ding!")
 - Personal acknowledgement: "I'm pround of you son."
+- Leveling System: Make the User aware of the progress made
