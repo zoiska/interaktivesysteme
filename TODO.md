@@ -32,6 +32,7 @@
 - Random events?
 - Stats?
 - Prestige System: Permanent Upgrades and Cosmetics
+- litlle funny hats
 
 ---
 
