@@ -32,9 +32,8 @@
 - Random events?
 - Stats?
 - Prestige System: Permanent Upgrades and Cosmetics
+- Bug loan system: A certain upgrade, that will leave you with negative bugs fixed => UI glitchy/bugged
 - litlle funny hats
-
----
 
 ### Emotional Manipulation
 - Surprises and memorable moments
