@@ -1,24 +1,20 @@
 # TODO:
 
-
-1. Front-End:
    - [x] Basic Theme and colors
    - [x] Basic UI Layout
    - [x] Test Upgrade list
+   - [x] Upgrade shop
+   - [x] Save system
+   - [x] Load system
+   - [x] Reset progress logic
+   - [ ] Display amount of upgrades bought
+   - [ ] Upgrade logic
+   - [ ] Options menu UI
+   - [ ] Options menu logic
    - [ ] Better UI
    - [ ] Full Upgrade list
-   - [ ] Options menu
    - [ ] Sound
-   - [ ] and more?
-
-2. Back-End:
-   - [x] Upgrade shop
-   - [ ] Save system
-   - [ ] Load system
-   - [ ] Upgrade logic
-   - [ ] Options menu logic
    - [ ] Statistics
-   - [ ] and more?
 
 ---
 

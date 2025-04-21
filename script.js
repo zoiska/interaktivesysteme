@@ -1,9 +1,9 @@
-let mainCurrencyCounter = 0
+let currencyCounter = 0
 let currencyPerClick = 1
 
 let boughtUpgrades = {
-  "ask_on_reddit": 1,
-  "google_it": 2,
+  "ask_on_reddit": 0,
+  "google_it": 0,
   "tell_chatgtp_to_do_it": 0,
   "read_the_documentation": 0
 }
@@ -20,18 +20,20 @@ function init() {
     const shopToggle = document.querySelector(".shopToggle")
   
     clicker.addEventListener("click", () => {
-      mainCurrencyCounter += currencyPerClick
-      display.innerText = mainCurrencyCounter
+      currencyCounter += currencyPerClick
+      display.innerText = currencyCounter
+      saveGame()
     })
 
     shopToggle.addEventListener('click', () => {
       sidebar.classList.toggle('open')
       shopToggle.classList.toggle('open')
     })
-  
-    display.innerText = mainCurrencyCounter
 
     loadUpgrades()
+    loadSave()
+
+    display.innerText = currencyCounter
   }
 
   function loadUpgrades() {
@@ -42,7 +44,7 @@ function init() {
 
       upgrades.forEach(element => {
         const shopButton = document.createElement('button')
-        let cost = element.base_cost * Math.floor(element.price_multiplier ** boughtUpgrades[element.id])
+        let cost =  element.base_cost * Math.floor((boughtUpgrades[element.id] + 1) ** element.price_multiplier)
 
         shopButton.className = 'shopButton'
         shopButton.innerHTML = `
@@ -58,9 +60,32 @@ function init() {
     })
   }
 
-  //TODO:
-  function saveGame() {}
-  //TODO:
-  function loadGame() {}
+  function saveGame() {
+    localStorage.setItem("savedCurrencyCurrency", currencyCounter)
+    localStorage.setItem("savedBoughtUpgrades", JSON.stringify(boughtUpgrades))
+  }
+
+  function loadSave() {
+    savedCurrency = Number(localStorage.getItem("savedCurrencyCurrency"))
+    if(savedCurrency !== null) {
+      currencyCounter = savedCurrency
+    }
+
+    const savedUpgrades = localStorage.getItem("savedBoughtUpgrades")
+    const parsedUpgrades = JSON.parse(savedUpgrades)
+
+    if(parsedUpgrades !== null) {
+      for(let key in boughtUpgrades) {
+        if(parsedUpgrades.hasOwnProperty(key)) {
+          boughtUpgrades[key] = parsedUpgrades[key]
+        }
+      }
+    }
+  }
+
+  function resetProgress() {
+    localStorage.clear("savedCurrencyCurrency")
+    localStorage.clear("savedBoughtUpgrades")
+  }
 
 window.onload = init()
