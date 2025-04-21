@@ -1,19 +1,29 @@
 # TODO:
 
-**roughly** and in no particular order
 
 1. Front-End:
-   - [ ] Theme and colors
-   - [ ] UI Layout
-   - [ ] Upgrade list
+   - [x] Basic Theme and colors
+   - [x] Basic UI Layout
+   - [x] Test Upgrade list
+   - [ ] Better UI
+   - [ ] Full Upgrade list
    - [ ] Options menu
    - [ ] Sound
    - [ ] and more?
 
 2. Back-End:
-   - [ ] Save system (timestamps)
-   - [ ] Upgrade mechanics
+   - [x] Upgrade shop
+   - [ ] Save system
+   - [ ] Load system
+   - [ ] Upgrade logic
+   - [ ] Options menu logic
+   - [ ] Statistics
    - [ ] and more?
+
+---
+
+## Upgrades
+When adding a new upgrade, add its definition to the upgrade_definitions.json file following the same format and add the upgrade-id to boughtUpgrades in script.js. boughtUpgrades entry must equal upgrade_definitoins.id!
 
 ---
 
@@ -34,6 +44,8 @@
 - Prestige System: Permanent Upgrades and Cosmetics
 - Bug loan system: A certain upgrade, that will leave you with negative bugs fixed => UI glitchy/bugged
 - litlle funny hats
+
+---
 
 ### Emotional Manipulation
 - Surprises and memorable moments
