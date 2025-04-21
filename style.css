@@ -101,7 +101,7 @@ body{
     top: 0;
     right: 0;
     margin: 0px;
-    padding: 5px;
+    padding: 10px;
     gap: 10px;
     width: 200px;
     height: 100vh;
@@ -116,7 +116,16 @@ body{
     transform: translate(0)
 }
 
-.sidebar-item{
+.shopButton{
+    display: grid;
+    grid-template-areas: 
+    "name name"
+    "desc desc"
+    "cost fpc";
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr auto;
+    gap: 5px;
+
     width: 100%;
     padding: 10px;
     background-color: grey;
@@ -124,16 +133,41 @@ body{
     cursor: pointer;
     font-family: 'MyFont', sans-serif;
     font-display: swap;
+}
+
+.shopButton .name{
+    grid-area: name;
+    justify-self: center;
     font-size: 20px;
+}
+
+.shopButton .desc{
+    grid-area: desc;
+    align-self: center;
+    font-size: 15px;
+}
+
+.shopButton .cost{
+    grid-area: cost;
+    align-self: end;
+    justify-self: start;
+    font-size: 15px;
+}
+
+.shopButton .fpc{
+    grid-area: fpc;
+    align-self: start;
+    justify-self: end;
+    font-size: 15px;
 }
 
 .shopToggle{
     position: fixed;
     top: 50%;
-    right: 200px;
+    right: 220px;
     z-index: 1100;
     cursor: pointer;
-    transform: translateX(200px);
+    transform: translateX(220px);
     transition: transform 0.3s ease;
     background-color: darkslategrey;
     color: #3AE616;
