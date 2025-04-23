@@ -1,6 +1,11 @@
 let currencyCounter = 0
 let currencyPerClick = 1
 
+
+/*
+  List of bought Upgrades
+*/
+
 let boughtUpgrades = {
   "ask_on_reddit": 0,
   "google_it": 0,
@@ -16,8 +21,11 @@ let boughtUpgrades = {
 function init() {
     const clicker = document.querySelector("#clickableArea")
     const display = document.querySelector("#currency")
-    const sidebar = document.querySelector(".sidebar")
+    const sidebarOptions = document.querySelector(".sidebarOptions")
+    const sidebarShop = document.querySelector(".sidebarShop")
+    const optionsToggle = document.querySelector(".optionsToggle")
     const shopToggle = document.querySelector(".shopToggle")
+    const resetButton = document.querySelector(".resetButton")
   
     clicker.addEventListener("click", () => {
       currencyCounter += currencyPerClick
@@ -25,8 +33,18 @@ function init() {
       saveGame()
     })
 
+    resetButton.addEventListener("click", () => {
+      resetProgress()
+      location.reload()
+    })
+
+    optionsToggle.addEventListener('click', () => {
+      sidebarOptions.classList.toggle('open')
+      optionsToggle.classList.toggle('open')
+    })
+
     shopToggle.addEventListener('click', () => {
-      sidebar.classList.toggle('open')
+      sidebarShop.classList.toggle('open')
       shopToggle.classList.toggle('open')
     })
 
@@ -36,56 +54,61 @@ function init() {
     display.innerText = currencyCounter
   }
 
-  function loadUpgrades() {
-        fetch('upgrade_definitions.json')
-    .then(res => res.json())
-    .then(upgrades => {
-      const sidebar = document.querySelector(".sidebar")
 
-      upgrades.forEach(element => {
-        const shopButton = document.createElement('button')
-        let cost =  element.base_cost * Math.floor((boughtUpgrades[element.id] + 1) ** element.price_multiplier)
+/*
+  This function loads bought Upgrades
+*/
 
-        shopButton.className = 'shopButton'
-        shopButton.innerHTML = `
-        <span class="name">${element.name}</span>
-        <span class="desc">${element.description}</span>
-        <span class="cost">Cost: ${cost}</span>
-        <span class="fpc">FPC: ${element.fpc}</span>`
+function loadUpgrades() {
+      fetch('upgrade_definitions.json')
+  .then(res => res.json())
+  .then(upgrades => {
+    const sidebar = document.querySelector(".sidebarShop")
 
-        //TODO: button event handling and purchase logic
+    upgrades.forEach(element => {
+      const shopButton = document.createElement('button')
+      let cost =  element.base_cost * Math.floor((boughtUpgrades[element.id] + 1) ** element.price_multiplier)
 
-        sidebar.appendChild(shopButton)
-      })
+      shopButton.className = 'shopButton'
+      shopButton.innerHTML = `
+      <span class="name">${element.name}</span>
+      <span class="desc">${element.description}</span>
+      <span class="cost">Cost: ${cost}</span>
+      <span class="fpc">FPC: ${element.fpc}</span>`
+
+      //TODO: button event handling and purchase logic
+
+      sidebar.appendChild(shopButton)
     })
+  })
+}
+
+function saveGame() {
+  localStorage.setItem("savedCurrencyCurrency", currencyCounter)
+  localStorage.setItem("savedBoughtUpgrades", JSON.stringify(boughtUpgrades))
+}
+
+function loadSave() {
+  savedCurrency = Number(localStorage.getItem("savedCurrencyCurrency"))
+  if(savedCurrency !== null) {
+    currencyCounter = savedCurrency
   }
 
-  function saveGame() {
-    localStorage.setItem("savedCurrencyCurrency", currencyCounter)
-    localStorage.setItem("savedBoughtUpgrades", JSON.stringify(boughtUpgrades))
-  }
+  const savedUpgrades = localStorage.getItem("savedBoughtUpgrades")
+  const parsedUpgrades = JSON.parse(savedUpgrades)
 
-  function loadSave() {
-    savedCurrency = Number(localStorage.getItem("savedCurrencyCurrency"))
-    if(savedCurrency !== null) {
-      currencyCounter = savedCurrency
-    }
-
-    const savedUpgrades = localStorage.getItem("savedBoughtUpgrades")
-    const parsedUpgrades = JSON.parse(savedUpgrades)
-
-    if(parsedUpgrades !== null) {
-      for(let key in boughtUpgrades) {
-        if(parsedUpgrades.hasOwnProperty(key)) {
-          boughtUpgrades[key] = parsedUpgrades[key]
-        }
+  if(parsedUpgrades !== null) {
+    for(let key in boughtUpgrades) {
+      if(parsedUpgrades.hasOwnProperty(key)) {
+        boughtUpgrades[key] = parsedUpgrades[key]
       }
     }
   }
+}
 
-  function resetProgress() {
-    localStorage.clear("savedCurrencyCurrency")
-    localStorage.clear("savedBoughtUpgrades")
-  }
+function resetProgress() {
+  localStorage.clear("savedCurrencyCurrency")
+  localStorage.clear("savedBoughtUpgrades")
+}
 
 window.onload = init()

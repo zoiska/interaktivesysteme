@@ -9,7 +9,8 @@
    - [x] Reset progress logic
    - [ ] Display amount of upgrades bought
    - [ ] Upgrade logic
-   - [ ] Options menu UI
+   - [x] Options menu UI
+   - [x] Reset Button
    - [ ] Options menu logic
    - [ ] Better UI
    - [ ] Full Upgrade list
