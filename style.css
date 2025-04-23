@@ -42,34 +42,35 @@ body{
     font-display: swap;
     height: inherit;
     margin: 0;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 1vw;
+    padding-right: 1vw;
 }
 
 .wrapper{
     position: relative;
     width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-basis: 100%;
-    justify-content: center;
-    height: 90%;
-    border: 15px solid black;
-    border-radius: 16px;
-    padding: 10px 25px;
+    height: 94vh;
+    border: 5px solid black;
+    border-radius: 2vh;
+    padding: 1vh 1vw;
     background: grey;
 }
 
-#currencyDisplay{
+.currencyContainer{
     display: flex;
-    position: absolute;
-    justify-content: center;
-    font-size: 20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+#currencyDisplay{
+    align-self: center;
+    font-size: clamp(1rem, 3vw, 3rem);
 }
 
 #currency{
-    position: absolute;
-    font-size: 50px;
+    align-self: center;
+    font-size: clamp(2rem, 5vw, 4rem);
     color: #3AE616;
 }
 
@@ -78,8 +79,8 @@ body{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 200px;
-    height: 200px;
+    width: clamp(10vw, 50vw, 55vw);
+    height: clamp(10vh, 50vh, 55vh);
     padding: 0;
     border: none;
     background: none;
@@ -100,11 +101,12 @@ body{
     position: fixed;
     top: 0;
     left: 0;
-    margin: 0px;
-    padding: 10px;
-    gap: 10px;
+    padding: 1vh;
+    gap: 1vh;
     width: 30vw;
     height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
     border-right: 3px solid darkslategrey;
     background: #062a34;
     transform: translateX(-100%);
@@ -122,11 +124,12 @@ body{
     position: fixed;
     top: 0;
     right: 0;
-    margin: 0px;
-    padding: 10px;
-    gap: 10px;
+    padding: 1vh;
+    gap: 1vh;
     width: 30vw;
     height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
     border-left: 3px solid darkslategrey;
     background: #062a34;
     transform: translateX(100%);
@@ -140,13 +143,13 @@ body{
 
 .resetButton{
     width: 100%;
-    padding: 10px;
+    padding: 1vh;
     background-color: grey;
     color: white;
     cursor: pointer;
     font-family: 'MyFont', sans-serif;
     font-display: swap;
-    font-size: 20px;
+    font-size: clamp(0.8rem, 3vw, 2rem);
 }
 
 .shopButton{
@@ -157,56 +160,54 @@ body{
     "cost fpc";
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto 1fr auto;
-    gap: 5px;
+    gap: 1vh;
 
     width: 100%;
-    padding: 10px;
+    padding: 2vh;
     background-color: grey;
     color: white;
     cursor: pointer;
     font-family: 'MyFont', sans-serif;
     font-display: swap;
+    font-size: clamp(0.5rem, 2vw, 1rem);
 }
 
 .shopButton .name{
     grid-area: name;
     justify-self: center;
-    font-size: 20px;
+    font-size: clamp(0.8rem, 3vw, 2rem);
 }
 
 .shopButton .desc{
     grid-area: desc;
     align-self: center;
-    font-size: 15px;
 }
 
 .shopButton .cost{
     grid-area: cost;
     align-self: end;
     justify-self: start;
-    font-size: 15px;
 }
 
 .shopButton .fpc{
     grid-area: fpc;
     align-self: start;
     justify-self: end;
-    font-size: 15px;
 }
 
 .optionsToggle{
     position: fixed;
     top: 50%;
-    left: calc(30vw + 20px); /*THE PADDING*/
+    left: calc(30vw + 2vh);     /*THE PADDING*/
     z-index: 1100;
     cursor: pointer;
-    transform: translateX(calc(-30vw - 20px));
+    transform: translateX(calc(-30vw - 2vh));
     transition: transform 0.3s ease;
     background-color: darkslategrey;
     color: #3AE616;
     font-family: 'MyFont', sans-serif;
     font-display: swap;
-    font-size: 20px;
+    font-size: 2vw;
 }
 
 .optionsToggle.open{
@@ -216,16 +217,16 @@ body{
 .shopToggle{
     position: fixed;
     top: 50%;
-    right: calc(30vw + 20px);/*THE PADDING*/
+    right: calc(30vw + 2vh);    /*THE PADDING*/
     z-index: 1100;
     cursor: pointer;
-    transform: translateX(calc(30vw + 20px));
+    transform: translateX(calc(30vw + 2vh));
     transition: transform 0.3s ease;
     background-color: darkslategrey;
     color: #3AE616;
     font-family: 'MyFont', sans-serif;
     font-display: swap;
-    font-size: 20px;
+    font-size: 2vw;
 }
 
 .shopToggle.open{
