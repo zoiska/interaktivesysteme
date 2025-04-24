@@ -7,10 +7,11 @@
    - [x] Save system
    - [x] Load system
    - [x] Reset progress logic
-   - [ ] Display amount of upgrades bought
-   - [ ] Upgrade logic
+   - [x] Display amount of upgrades bought
+   - [x] Upgrade logic
    - [x] Options menu UI
    - [x] Reset Button
+   - [ ] Spacebar, enter for clicking
    - [ ] Options menu logic
    - [ ] Better UI
    - [ ] Full Upgrade list
@@ -52,3 +53,10 @@ When adding a new upgrade, add its definition to the upgrade_definitions.json fi
 - Progress Satisfaction: "celebration" for moments and milestones, visual elements(callback to progress bars), sounds ("Ding!")
 - Personal acknowledgement: "I'm pround of you son."
 - Leveling System: Make the User aware of the progress made
+
+---
+
+### Mobile
+- Seperate mobile site for better ergonomics and styllle
+- away with sidebars, popup windows for options/shop
+- allow only "one tab" at a time

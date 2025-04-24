@@ -155,9 +155,9 @@ body{
 .shopButton{
     display: grid;
     grid-template-areas: 
-    "name name"
-    "desc desc"
-    "cost fpc";
+    "name name name"
+    "desc desc desc"
+    "cost level fpc";
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto 1fr auto;
     gap: 1vh;
@@ -186,6 +186,12 @@ body{
 .shopButton .cost{
     grid-area: cost;
     align-self: end;
+    justify-self: start;
+}
+
+.shopButton .level{
+    grid-area: level;
+    align-self: center;
     justify-self: start;
 }
 
