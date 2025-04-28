@@ -11,12 +11,12 @@
    - [x] Upgrade logic
    - [x] Options menu UI
    - [x] Reset Button
-   - [ ] Spacebar, enter for clicking
+   - [x] Spacebar, enter for clicking
+   - [ ] Statistics
+   - [ ] Sounds and Music
    - [ ] Options menu logic
    - [ ] Better UI
    - [ ] Full Upgrade list
-   - [ ] Sound
-   - [ ] Statistics
 
 ---
 

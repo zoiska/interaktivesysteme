@@ -2,6 +2,8 @@ let currencyCounter = 0
 let currencyPerClick = 1
 
 
+let isHovering = false    // is the mouse hovering over the bug
+
 /*
   boughtUpgrades object initialization
   these are always 0 !
@@ -26,10 +28,23 @@ function init() {
   const shopToggle = document.querySelector(".shopToggle")
   const resetButton = document.querySelector(".resetButton")
 
-  clicker.addEventListener("click", () => {
-    currencyCounter += currencyPerClick
-    updateDisplay()
-    saveGame()                                    //save game, this will have to move at some point
+  clicker.addEventListener('click', () => {       // the event listener for the ladybug click
+    mainClickEvent()
+  })
+
+  clicker.addEventListener('mouseenter', () => {
+    isHovering = true
+  })
+
+  clicker.addEventListener('mouseleave', () => {
+    isHovering = false
+  })
+
+  document.addEventListener('keydown', (event) => {
+    if((event.key === 'Enter' && !event.repeat && isHovering === true) ||   // allow clicking with enter
+        (event.key === ' ' && !event.repeat && isHovering === true)) {      // allow clicking with spacebar
+      mainClickEvent()
+    }
   })
 
   resetButton.addEventListener("click", () => {
@@ -53,14 +68,20 @@ function init() {
   updateDisplay()
 }
 
+function mainClickEvent() {
+  currencyCounter += currencyPerClick
+  updateDisplay()
+  saveGame()                              //save game, this will have to move at some point
+}
+
 function updateDisplay() {
   const display = document.querySelector("#currency")
   display.innerText = currencyCounter
 }
 
 /*
-  This function loads bought upgrades from upgrade_definitions.json and dynamically loads them into the shop sidebar
-  and hooks them up with purchase logic
+  This function loads bought upgrades from upgrade_definitions.json and dynamically
+  loads them into the shop sidebar and hooks them up with purchase logic
 */
 function loadUpgrades() {
   fetch('upgrade_definitions.json')
@@ -89,7 +110,7 @@ function loadUpgrades() {
           console.log(element.id + " clicked")
 
           // localStorage behaves in a way i dont understand, saving and "reloading" is necessary after every change
-          // may cause z-fighting style flickering
+          // may cause z-fighting style flickering, too bad!
           saveGame()
           sidebar.innerHTML = ''
           loadUpgrades()
