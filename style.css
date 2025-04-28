@@ -95,6 +95,25 @@ body{
     transform: scale(1.1);
 }
 
+.sidebarBackdrop{
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: none;
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: transparent;
+    z-index: 900;
+    transform: translateY(-100%);
+    transition: transform 0;
+}
+
+.sidebarBackdrop.open{
+    transform: translate(0)
+}
+
 .sidebarOptions{
     display: flex;
     flex-direction: column;

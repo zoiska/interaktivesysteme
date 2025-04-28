@@ -3,11 +3,11 @@ let currencyPerClick = 1
 
 
 let isHovering = false    // is the mouse hovering over the bug
+let optionsOpen = false
+let shopOpen = false
 
-/*
-  boughtUpgrades object initialization
-  these are always 0 !
-*/
+/* boughtUpgrades object initialization
+  these are always 0 ! */
 let boughtUpgrades = {
   ask_on_reddit: 0,
   google_it: 0,
@@ -27,6 +27,7 @@ function init() {
   const optionsToggle = document.querySelector(".optionsToggle")
   const shopToggle = document.querySelector(".shopToggle")
   const resetButton = document.querySelector(".resetButton")
+  const sidebarBackdrop = document.querySelector(".sidebarBackdrop")
 
   clicker.addEventListener('click', () => {       // the event listener for the ladybug click
     mainClickEvent()
@@ -42,24 +43,57 @@ function init() {
 
   document.addEventListener('keydown', (event) => {
     if((event.key === 'Enter' && !event.repeat && isHovering === true) ||   // allow clicking with enter
-        (event.key === ' ' && !event.repeat && isHovering === true)) {      // allow clicking with spacebar
+    (event.key === ' ' && !event.repeat && isHovering === true)) {          // allow clicking with spacebar
+      clicker.animate([
+        { transform: 'scale(1)' },
+        { transform: 'scale(1.1)' },
+        { transform: 'scale(1)' }
+    ], {
+        duration: 60,
+    });
       mainClickEvent()
     }
   })
 
-  resetButton.addEventListener("click", () => {
+  resetButton.addEventListener("click", () => {               // reset button
     resetProgress()
     location.reload()
   })
 
-  optionsToggle.addEventListener('click', () => {
-    sidebarOptions.classList.toggle('open')
-    optionsToggle.classList.toggle('open')
+  optionsToggle.addEventListener('keydown', (event) => {      // disable keyboard input for options button
+    if(event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault()
+    }
   })
 
-  shopToggle.addEventListener('click', () => {
+  optionsToggle.addEventListener('click', () => {             // event listener for options button
+    optionsOpen === false ?  optionsOpen = true : optionsOpen = false
+    sidebarOptions.classList.toggle('open')
+    optionsToggle.classList.toggle('open')
+    toggleSidebarBackdrop(sidebarBackdrop)
+  })
+
+  shopToggle.addEventListener('keydown', (event) => {         // disable keyboard input for shop button
+    if(event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault()
+    }
+  })
+
+  shopToggle.addEventListener('click', () => {                // event listener for shop button
+    shopOpen === false ? shopOpen = true : shopOpen = false
     sidebarShop.classList.toggle('open')
     shopToggle.classList.toggle('open')
+    toggleSidebarBackdrop(sidebarBackdrop)
+  })
+
+  sidebarBackdrop.addEventListener('click', () => {           // if backdrop clicked, close everything
+    shopOpen = false
+    optionsOpen = false
+    sidebarOptions.classList.remove('open')
+    optionsToggle.classList.remove('open')
+    sidebarShop.classList.remove('open')
+    shopToggle.classList.remove('open')
+    sidebarBackdrop.classList.remove('open')
   })
 
   loadSave()
@@ -79,10 +113,19 @@ function updateDisplay() {
   display.innerText = currencyCounter
 }
 
-/*
-  This function loads bought upgrades from upgrade_definitions.json and dynamically
-  loads them into the shop sidebar and hooks them up with purchase logic
-*/
+/* This function toggles a (hopefully transparent) div over the ladybug, under the sidebars if one or both
+are open, else the backdrop is removed*/
+function toggleSidebarBackdrop(sidebarBackdrop) {
+  if(optionsOpen === true || shopOpen === true) {
+    sidebarBackdrop.classList.add('open')
+  }
+  else {
+    sidebarBackdrop.classList.remove('open')
+  }
+}
+
+/* This function loads bought upgrades from upgrade_definitions.json and dynamically
+  adds them as buttons into the shop sidebar and hooks them up with purchase logic */
 function loadUpgrades() {
   fetch('upgrade_definitions.json')
   .then(res => res.json())
@@ -91,7 +134,7 @@ function loadUpgrades() {
 
     upgrades.forEach(element => {
       const shopButton = document.createElement('button')
-      let cost =  element.base_cost * Math.floor((boughtUpgrades[element.id] + 1) ** element.price_multiplier)
+      let cost =  element.base_cost * Math.round((boughtUpgrades[element.id] + 1) ** element.price_multiplier)
 
       shopButton.className = 'shopButton'
       shopButton.innerHTML = `
