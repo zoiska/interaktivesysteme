@@ -140,9 +140,12 @@ function loadUpgrades() {
       shopButton.innerHTML = `
       <span class="name">${element.name}</span>
       <span class="desc">${element.description}</span>
-      <span class="cost">Cost: ${cost}</span>
-      <span class="level">Level: ${boughtUpgrades[element.id]}</span>
-      <span class="fpc">FPC: ${element.fpc}</span>`
+      <span class="coin"><img src="./emojisvg/coin_1FA99.svg"></span>
+      <span class="cost">${cost}</span>
+      <span class="levelT">Level:</span>
+      <span class="level">${boughtUpgrades[element.id]}</span>
+      <span class="finger"><img src="./emojisvg/fingerpushing_E10C.svg"></span>
+      <span class="fpc">${element.fpc}</span>`
 
       shopButton.addEventListener('click', () => {
         if(currencyCounter >= cost) {

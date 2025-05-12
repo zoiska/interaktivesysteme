@@ -12,11 +12,19 @@
    - [x] Options menu UI
    - [x] Reset Button
    - [x] Spacebar, enter for clicking
+   - [x] Move all buttons to the bottom
+   - [ ] Replace footer buttons with svg's
+   - [ ] Add custumisation window/screen
+   - [ ] Add Prestiege window/screen
+   - [ ] Add custumisation logic
+   - [ ] Add prestiege logic
    - [ ] Statistics
    - [ ] Sounds and Music
    - [ ] Options menu logic
    - [ ] Better UI
    - [ ] Full Upgrade list
+   - [ ] More hats
+   - [ ] Basic textbased tutorial
 
 ---
 
