@@ -5,6 +5,8 @@ let currencyPerClick = 1
 let isHovering = false    // is the mouse hovering over the bug
 let optionsOpen = false
 let shopOpen = false
+let prestigeOpen = false
+let customisationOpen = false
 
 /* boughtUpgrades object initialization
   these are always 0 ! */
@@ -28,6 +30,10 @@ function init() {
   const shopToggle = document.querySelector(".shopToggle")
   const resetButton = document.querySelector(".resetButton")
   const sidebarBackdrop = document.querySelector(".sidebarBackdrop")
+  const prestigeButton = document.querySelector(".prestigeButton")
+  const prestigeWindow = document.querySelector(".prestigeWindow")
+  const customisationButton = document.querySelector(".customisationButton")
+  const customisationWindow = document.querySelector(".customisationWindow")
 
   clicker.addEventListener('click', () => {       // the event listener for the ladybug click
     mainClickEvent()
@@ -69,7 +75,30 @@ function init() {
   clickableAreaOptions.addEventListener('click', () => {             // event listener for options button
     optionsOpen === false ?  optionsOpen = true : optionsOpen = false
     sidebarOptions.classList.toggle('open')
-    optionsToggle.classList.toggle('open')
+    toggleSidebarBackdrop(sidebarBackdrop)
+  })
+
+  prestigeButton.addEventListener('keydown', (event) => {                 // disable keyboard input for prestige button
+    if(event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault()
+    }
+  })
+
+  clickableAreaPrestige.addEventListener('click', () => {                 // event listener for prestige button
+    prestigeOpen === false ? prestigeOpen = true : prestigeOpen = false
+    prestigeWindow.classList.toggle('open')
+    toggleSidebarBackdrop(sidebarBackdrop)
+  })
+
+  customisationButton.addEventListener('keydown', (event) => {            // disable keyboard input for customisation button
+    if(event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault()
+    }
+  })
+
+  customisationButton.addEventListener('click', () => { 
+    customisationOpen === false ? customisationOpen = true : customisationOpen === false   // event listener for customisation button
+    customisationWindow.classList.toggle('open')
     toggleSidebarBackdrop(sidebarBackdrop)
   })
 
@@ -82,18 +111,21 @@ function init() {
   clickableAreaShop.addEventListener('click', () => {                // event listener for shop button
     shopOpen === false ? shopOpen = true : shopOpen = false
     sidebarShop.classList.toggle('open')
-    shopToggle.classList.toggle('open')
     toggleSidebarBackdrop(sidebarBackdrop)
   })
 
   sidebarBackdrop.addEventListener('click', () => {           // if backdrop clicked, close everything
     shopOpen = false
     optionsOpen = false
+    prestigeOpen = false
+    customisationOpen = false
     sidebarOptions.classList.remove('open')
     optionsToggle.classList.remove('open')
     sidebarShop.classList.remove('open')
     shopToggle.classList.remove('open')
     sidebarBackdrop.classList.remove('open')
+    customisationWindow.classList.remove('open')
+    prestigeWindow.classList.remove('open')
   })
 
   loadSave()
@@ -116,7 +148,7 @@ function updateDisplay() {
 /* This function toggles a (hopefully transparent) div over the ladybug, under the sidebars if one or both
 are open, else the backdrop is removed*/
 function toggleSidebarBackdrop(sidebarBackdrop) {
-  if(optionsOpen === true || shopOpen === true) {
+  if(optionsOpen === true || shopOpen === true || prestigeOpen === true || customisationOpen === true) {
     sidebarBackdrop.classList.add('open')
   }
   else {

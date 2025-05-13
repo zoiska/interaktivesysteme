@@ -15,9 +15,8 @@
    - [x] <a id="d1"></a>Add backdrop that closes siebars when clicked
    - [x] Move all buttons to the bottom
    - [x] Replace footer buttons with svg's
-   - [ ] OpenMoji attribution and License
-   - [ ] Add customisation window/screen
-   - [ ] Add Prestiege window/screen
+   - [x] Add customisation window/screen
+   - [x] Add Prestiege window/screen
    - [ ] Add customisation logic
    - [ ] Add prestiege logic
    - [ ] Statistics
