@@ -19,6 +19,11 @@ html{
     background: #062a34;
 }
 
+
+/*=========================================
+                FONT                      
+=========================================*/
+
 @font-face{
     font-family: 'MyFont';
     src: url('fonts/MinecraftRegular-Bmg3.otf') format('opentype');
@@ -45,6 +50,12 @@ body{
     padding-left: 1vw;
     padding-right: 1vw;
 }
+
+
+/*=========================================
+            CURRENCY CONTAINER/
+            HEADER                      
+=========================================*/
 
 .wrapper{
     display: flex;
@@ -76,6 +87,11 @@ body{
     color: #3AE616;
 }
 
+
+/*=========================================
+            THE MAIN CLICKER                      
+=========================================*/
+
 #ladybug{
     position: absolute;
     top: 50%;
@@ -97,6 +113,11 @@ body{
     transform: scale(1.1);
 }
 
+
+/*=========================================
+                BACKDROP                      
+=========================================*/
+
 .sidebarBackdrop{
     display: flex;
     position: fixed;
@@ -115,6 +136,11 @@ body{
 .sidebarBackdrop.open{
     transform: translate(0)
 }
+
+
+/*=========================================
+            SIDEBAR OPTIONS                      
+=========================================*/
 
 .sidebarOptions{
     display: flex;
@@ -139,6 +165,11 @@ body{
     transform: translate(0)
 }
 
+
+/*=========================================
+            SIDEBAR SHOP                     
+=========================================*/
+
 .sidebarShop{
     display: flex;
     flex-direction: column;
@@ -162,6 +193,11 @@ body{
     transform: translate(0)
 }
 
+
+/*=========================================
+            OPTIONS-CONTENT                      
+=========================================*/
+
 .resetButton{
     width: 100%;
     padding: 1vh;
@@ -172,6 +208,11 @@ body{
     font-display: swap;
     font-size: clamp(0.8rem, 3vw, 2rem);
 }
+
+
+/*=========================================
+            SHOP BUY BUTTONS                     
+=========================================*/
 
 .shopButton{
     display: grid;
@@ -244,37 +285,43 @@ body{
     justify-self: center;
 }
 
-.optionsToggle{
-    z-index: 1100;
-    cursor: pointer;
-    background-color: darkslategrey;
-    color: #3AE616;
-    font-family: 'MyFont', sans-serif;
-    font-display: swap;
-    font-size: 2vw;
-}
+
+/*=========================================
+                TOGGLES                      
+=========================================*/
 
 .optionsToggle.open{
     transform: translate(0)
-}
-
-.shopToggle{
-    z-index: 1100;
-    cursor: pointer;
-    background-color: darkslategrey;
-    color: #3AE616;
-    font-family: 'MyFont', sans-serif;
-    font-display: swap;
-    font-size: 2vw;
 }
 
 .shopToggle.open{
     transform: translate(0)
 }
 
+
+/*=========================================
+                FOOTER                      
+=========================================*/
+
 .footerWrapper{
-    position: relative;
     display: flex;
     justify-self: center;
     align-self: flex-end;
+}
+
+.shopToggle, .optionsToggle, .prestigeButton, .customisationButton{
+    display: flex;
+    z-index: 500;
+    padding: 0;
+    border: none;
+    background: none;
+    overflow: hidden;
+    width: clamp(12vw, 15vw, 25vw);
+    height: clamp(12vh, 15vh, 25vh);
+}
+
+.customisationButton{
+    align-self: flex-end;
+    width: clamp(10vw, 13vw, 23vw);
+    height: clamp(10vh, 13vh, 23vh);
 }

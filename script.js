@@ -66,7 +66,7 @@ function init() {
     }
   })
 
-  optionsToggle.addEventListener('click', () => {             // event listener for options button
+  clickableAreaOptions.addEventListener('click', () => {             // event listener for options button
     optionsOpen === false ?  optionsOpen = true : optionsOpen = false
     sidebarOptions.classList.toggle('open')
     optionsToggle.classList.toggle('open')
@@ -79,7 +79,7 @@ function init() {
     }
   })
 
-  shopToggle.addEventListener('click', () => {                // event listener for shop button
+  clickableAreaShop.addEventListener('click', () => {                // event listener for shop button
     shopOpen === false ? shopOpen = true : shopOpen = false
     sidebarShop.classList.toggle('open')
     shopToggle.classList.toggle('open')

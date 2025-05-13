@@ -12,11 +12,13 @@
    - [x] Options menu UI
    - [x] Reset Button
    - [x] Spacebar, enter for clicking
+   - [x] <a id="d1"></a>Add backdrop that closes siebars when clicked
    - [x] Move all buttons to the bottom
-   - [ ] Replace footer buttons with svg's
-   - [ ] Add custumisation window/screen
+   - [x] Replace footer buttons with svg's
+   - [ ] OpenMoji attribution and License
+   - [ ] Add customisation window/screen
    - [ ] Add Prestiege window/screen
-   - [ ] Add custumisation logic
+   - [ ] Add customisation logic
    - [ ] Add prestiege logic
    - [ ] Statistics
    - [ ] Sounds and Music
@@ -67,4 +69,4 @@ When adding a new upgrade, add its definition to the upgrade_definitions.json fi
 ### Mobile
 - Seperate mobile site for better ergonomics and styllle
 - away with sidebars, popup windows for options/shop
-- allow only "one tab" at a time
+- allow only "one tab" at a time - [DONE](#d1)
