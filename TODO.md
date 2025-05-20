@@ -21,6 +21,7 @@
    - [x] Statistics logic
    - [x] Full Upgrade list
    - [x] Move upgrade-buy update function into individual buttons
+   - [x] Pull files apart
    - [ ] Add customisation logic
    - [ ] Add prestige logic
    - [ ] Export CSV savefile

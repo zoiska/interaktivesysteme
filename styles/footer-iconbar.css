@@ -1,0 +1,23 @@
+/*=========================================
+                FOOTER                      
+=========================================*/
+
+.footerWrapper {
+  display: flex;
+  justify-self: center;
+  align-self: flex-end;
+}
+
+.shopToggle,
+.optionsToggle,
+.prestigeButton,
+.customisationButton {
+  display: flex;
+  z-index: 500;
+  padding: 0;
+  border: none;
+  background: none;
+  overflow: hidden;
+  width: clamp(12vw, 15vw, 25vw);
+  height: clamp(12vh, 15vh, 25vh);
+}

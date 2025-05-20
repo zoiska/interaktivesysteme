@@ -1,0 +1,49 @@
+/*
+Styrrrrre: something something terminal hackerman;
+
+ i dont have an idea of our color palette
+ yet, but i will leave these here for your convenience.
+
+ darkslategrey      kinda greenblue, maybe accents?
+ #062a34            dark greenblue, background and sidepanel
+ 3ae616             Terminal cool, prob too bright
+ grey               genero
+*/
+
+html {
+  box-sizing: border-box;
+  height: 100%;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standart */
+  background: #062a34;
+}
+
+/*=========================================
+                FONT                      
+=========================================*/
+
+@font-face {
+  font-family: "MyFont";
+  src: url("../fonts/MinecraftRegular-Bmg3.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* *::before *::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "MyFont", sans-serif;
+  font-display: swap;
+  height: inherit;
+  margin: 0;
+  padding-left: 1vw;
+  padding-right: 1vw;
+}
