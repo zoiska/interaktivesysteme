@@ -233,8 +233,7 @@ function loadUpgrades() {
 
   upgrades.forEach((element) => {
     const shopButton = document.createElement("button");
-    let cost =
-      element.base_cost * Math.round((boughtUpgrades[element.id] + 1) ** element.price_multiplier);
+    let cost = calculateCost(element);
 
     shopButton.className = "shopButton";
     shopButton.innerHTML = `
@@ -250,23 +249,32 @@ function loadUpgrades() {
     shopButton.addEventListener("click", () => {
       if (currencyCounter >= cost) {
         currencyCounter -= cost;
+        currencyPerClick += element.fpc;
+        boughtUpgrades[element.id]++;
         statistics.total_upgrades_bought++;
         statistics.total_currency_spent += cost;
-        updateDisplay();
-        currencyPerClick += element.fpc;
-        boughtUpgrades[element.id] += 1;
+
         console.log(element.id + " clicked");
 
         // localStorage behaves in a way i dont understand, saving and "reloading" is necessary after every change
         // may cause z-fighting style flickering, too bad!
         saveGame();
-        sidebar.innerHTML = "";
-        loadUpgrades();
+        updateDisplay();
+
+        let cost = calculateCost(element);
+        shopButton.querySelector(".cost").textContent = cost;
+        shopButton.querySelector(".level").textContent = boughtUpgrades[element.id];
       }
     });
 
     sidebar.appendChild(shopButton);
   });
+}
+
+function calculateCost(element) {
+  return (
+    element.base_cost * Math.round((boughtUpgrades[element.id] + 1) ** element.price_multiplier)
+  );
 }
 
 function saveGame() {
