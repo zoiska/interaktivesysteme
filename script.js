@@ -261,7 +261,7 @@ function loadUpgrades() {
         saveGame();
         updateDisplay();
 
-        let cost = calculateCost(element);
+        cost = calculateCost(element);
         shopButton.querySelector(".cost").textContent = cost;
         shopButton.querySelector(".level").textContent = boughtUpgrades[element.id];
       }

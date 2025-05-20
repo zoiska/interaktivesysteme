@@ -20,15 +20,14 @@
    - [x] <a id="d2"></a>Add Statistics window
    - [x] Statistics logic
    - [x] Full Upgrade list
+   - [x] Move upgrade-buy update function into individual buttons
    - [ ] Add customisation logic
    - [ ] Add prestige logic
-   - [ ] Move upgrade-buy update function into individual buttons
    - [ ] Export CSV savefile
    - [ ] Reset confirmation and CSV prompt
    - [ ] Sounds and Music
    - [ ] Options menu logic
    - [ ] Better UI
-
    - [ ] More hats
    - [ ] Basic textbased tutorial
 
