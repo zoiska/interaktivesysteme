@@ -173,8 +173,9 @@ body {
   gap: 1vh;
   width: 30vw;
   height: 100vh;
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: auto;
+  scrollbar-width: none; /* None */
+  -ms-overflow-style: none; /* IE/Edge */
   border-left: 3px solid darkslategrey;
   background: #062a34;
   color: white;
@@ -185,6 +186,10 @@ body {
 
 .sidebarShop.open {
   transform: translate(0);
+}
+
+.sidebarShop::-webkit-scrollbar {
+  display: none; /* Safari, Chrome */
 }
 
 /*=========================================
