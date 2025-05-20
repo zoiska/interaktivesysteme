@@ -176,6 +176,8 @@ function init() {
 
 function mainClickEvent() {
   currencyCounter += currencyPerClick;
+  statistics.total_clicks++;
+  statistics.total_currency += currencyPerClick;
   updateDisplay();
   saveGame(); //save game, this will have to move at some point
 }
@@ -228,6 +230,8 @@ function loadUpgrades() {
     shopButton.addEventListener("click", () => {
       if (currencyCounter >= cost) {
         currencyCounter -= cost;
+        statistics.total_upgrades_bought++;
+        statistics.total_currency_spent += cost;
         updateDisplay();
         currencyPerClick += element.fpc;
         boughtUpgrades[element.id] += 1;
@@ -249,6 +253,7 @@ function saveGame() {
   localStorage.setItem("savedCurrentCurrency", currencyCounter);
   localStorage.setItem("savedCurrencyPerClick", currencyPerClick);
   localStorage.setItem("savedBoughtUpgrades", JSON.stringify(boughtUpgrades));
+  localStorage.setItem("savedStatistics", JSON.stringify(statistics));
 }
 
 function loadSave() {
@@ -264,6 +269,7 @@ function loadSave() {
     currencyPerClick = 1; // default click is always 1
   }
 
+  //save bought upgrades
   const savedUpgrades = localStorage.getItem("savedBoughtUpgrades");
   const parsedUpgrades = JSON.parse(savedUpgrades);
 
@@ -272,6 +278,18 @@ function loadSave() {
       // magic 😮
       if (parsedUpgrades.hasOwnProperty(key)) {
         boughtUpgrades[key] = parsedUpgrades[key];
+      }
+    }
+  }
+
+  //save stats
+  const savedStatistics = localStorage.getItem("savedStatistics");
+  const parsedStatistics = JSON.parse(savedStatistics);
+
+  if (parsedStatistics !== null) {
+    for (let key in statistics) {
+      if (parsedStatistics.hasOwnProperty(key)) {
+        statistics[key] = parsedStatistics[key];
       }
     }
   }

@@ -18,7 +18,7 @@
    - [x] Add customisation window/screen
    - [x] Add Prestiege window/screen
    - [x] <a id="d2"></a>Add Statistics window
-   - [ ] Statistics logic
+   - [x] Statistics logic
    - [ ] Add customisation logic
    - [ ] Add prestige logic
    - [ ] Move upgrade-buy update function into individual buttons
@@ -49,7 +49,7 @@ When adding a new upgrade, add its definition to the upgrade_definitions.json fi
 - Secondary resource for specific occasions (milestone upgrades?)
 - Progress bar, graph or other evolution (callback to visual changes)
 - Random events?
-- Stats  - [IN PROGRESS](#d2)
+- Stats  - [DONE](#d2)
 - Prestige System: Permanent Upgrades and Cosmetics
 - Bug loan system: A certain upgrade, that will leave you with negative bugs fixed => UI glitchy/bugged
 - litlle funny hats
