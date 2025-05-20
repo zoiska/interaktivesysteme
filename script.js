@@ -206,19 +206,16 @@ function toggleSidebarBackdrop(sidebarBackdrop) {
 /* This function loads bought upgrades from upgrade_definitions.json and dynamically
   adds them as buttons into the shop sidebar and hooks them up with purchase logic */
 function loadUpgrades() {
-  fetch("upgrade_definitions.json")
-    .then((res) => res.json())
-    .then((upgrades) => {
-      const sidebar = document.querySelector(".sidebarShop");
+  const upgrades = upgrade_definitions;
+  const sidebar = document.querySelector(".sidebarShop");
 
-      upgrades.forEach((element) => {
-        const shopButton = document.createElement("button");
-        let cost =
-          element.base_cost *
-          Math.round((boughtUpgrades[element.id] + 1) ** element.price_multiplier);
+  upgrades.forEach((element) => {
+    const shopButton = document.createElement("button");
+    let cost =
+      element.base_cost * Math.round((boughtUpgrades[element.id] + 1) ** element.price_multiplier);
 
-        shopButton.className = "shopButton";
-        shopButton.innerHTML = `
+    shopButton.className = "shopButton";
+    shopButton.innerHTML = `
       <span class="name">${element.name}</span>
       <span class="desc">${element.description}</span>
       <span class="coin"><img src="./emojisvg/coin_1FA99.svg"></span>
@@ -228,25 +225,24 @@ function loadUpgrades() {
       <span class="finger"><img src="./emojisvg/fingerpushing_E10C.svg"></span>
       <span class="fpc">${element.fpc}</span>`;
 
-        shopButton.addEventListener("click", () => {
-          if (currencyCounter >= cost) {
-            currencyCounter -= cost;
-            updateDisplay();
-            currencyPerClick += element.fpc;
-            boughtUpgrades[element.id] += 1;
-            console.log(element.id + " clicked");
+    shopButton.addEventListener("click", () => {
+      if (currencyCounter >= cost) {
+        currencyCounter -= cost;
+        updateDisplay();
+        currencyPerClick += element.fpc;
+        boughtUpgrades[element.id] += 1;
+        console.log(element.id + " clicked");
 
-            // localStorage behaves in a way i dont understand, saving and "reloading" is necessary after every change
-            // may cause z-fighting style flickering, too bad!
-            saveGame();
-            sidebar.innerHTML = "";
-            loadUpgrades();
-          }
-        });
-
-        sidebar.appendChild(shopButton);
-      });
+        // localStorage behaves in a way i dont understand, saving and "reloading" is necessary after every change
+        // may cause z-fighting style flickering, too bad!
+        saveGame();
+        sidebar.innerHTML = "";
+        loadUpgrades();
+      }
     });
+
+    sidebar.appendChild(shopButton);
+  });
 }
 
 function saveGame() {
