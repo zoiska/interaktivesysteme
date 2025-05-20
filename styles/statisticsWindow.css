@@ -1,0 +1,36 @@
+/*=========================================
+            STATISTICS WINDOW                      
+=========================================*/
+
+.statisticsWindow {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  align-self: center;
+  justify-self: center;
+  align-items: center;
+  padding: none;
+  width: 80%;
+  height: 80%;
+  border-radius: 16px;
+  border: 2px, solid white;
+  background: #062a34;
+  color: white;
+  z-index: 1000;
+  transform: translateY(150%);
+  transition: transform 0.3s ease;
+}
+
+.statisticsWindow.open {
+  transform: translate(0);
+}
+
+dl,
+dt,
+dd {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  justify-self: center;
+  align-self: center;
+}

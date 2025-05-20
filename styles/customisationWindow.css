@@ -1,0 +1,24 @@
+/*=========================================
+            CUSTOMISATION WINDOW                      
+=========================================*/
+
+.customisationWindow {
+  display: flex;
+  position: fixed;
+  align-self: center;
+  justify-self: center;
+  padding: 0;
+  width: 80%;
+  height: 80%;
+  border-radius: 16px;
+  border: 2px solid white;
+  background: #062a34;
+  color: white;
+  z-index: 1000;
+  transform: translateY(150%);
+  transition: transform 0.3s ease;
+}
+
+.customisationWindow.open {
+  transform: translate(0);
+}
