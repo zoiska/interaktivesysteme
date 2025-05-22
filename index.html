@@ -26,14 +26,17 @@
             <!--This is where the ladybug gets injected-->
             <div id="clicker"></div>
 
-
+            
 
             <div class="sidebarOptions">
                 <!--Options-->
                 <div class="audioOptions">
-                    [Mute Button] <br>
-                    Volume slider: <br>
-                    --O-------
+                    <button class="unmuteMuteButton">Unmute/Mute Music</button>
+                    <p id="volume-text">Volume Slider</p>
+                    <input type="range" id="volume-slider">
+                    <audio id="bgaudio" autoplay loop>
+                        <source src="./media/Videospiel Theme.ogg" type="audio/ogg">
+                    </audio>
                 </div>
 
                 <button class="statisticsButton">Statistics</button>

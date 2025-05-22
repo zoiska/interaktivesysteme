@@ -45,6 +45,7 @@ When adding a new upgrade, add its definition to the upgrade_definitions.json fi
 
 ### Feature ideas
 
+- Upgrade Milestones lead to Upgrades... of the Upgrades!
 - NO autoclick or bad autoclick progression
 - Overdriver: timed multiplier, charged by clicking
 - Multiplier: level based persistend multiplier, x number of clicks results in 0.01 mult increase, x increased with each level
