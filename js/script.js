@@ -11,8 +11,7 @@ import {
   injectItems,
 } from "./svgInjector.js";
 import { updateCustomisation } from "./customisation.js";
-import {standardvolume, unmuteMute} from "./audio.js";
-
+import { standardvolume, unmuteMute } from "./audio.js";
 
 function init() {
   injectLadybug();
@@ -21,8 +20,8 @@ function init() {
   injectCustomisation();
   injectShop();
   injectItems();
-  standardvolume();
 
+  standardvolume();
 
   const clicker = document.querySelector("#clickableArea");
   const sidebarOptions = document.querySelector(".sidebarOptions");
