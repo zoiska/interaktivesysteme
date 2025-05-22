@@ -9,6 +9,7 @@ import {
   injectPrestige,
   injectShop,
 } from "./svgInjector.js";
+import {standardvolume, unmuteMute} from "./audio.js";
 
 function init() {
   injectLadybug();
@@ -16,6 +17,7 @@ function init() {
   injectPrestige();
   injectCustomisation();
   injectShop();
+  standardvolume();
 
   const clicker = document.querySelector("#clickableArea");
   const sidebarOptions = document.querySelector(".sidebarOptions");
@@ -31,6 +33,7 @@ function init() {
   const statisticsButton = document.querySelector(".statisticsButton");
   const statisticsWindow = document.querySelector(".statisticsWindow");
   const statsContainer = document.querySelector(".statsContainer");
+  const unmuteMuteButton = document.querySelector(".unmuteMuteButton");
 
   clicker.addEventListener("click", () => {
     // the event listener for the ladybug click
@@ -59,6 +62,10 @@ function init() {
       );
       mainClickEvent();
     }
+  });
+
+  unmuteMuteButton.addEventListener("click", () => {
+    unmuteMute();
   });
 
   resetButton.addEventListener("click", () => {
