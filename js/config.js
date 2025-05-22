@@ -1,6 +1,7 @@
 export const state = {
   currencyCounter: 0,
   currencyPerClick: 1,
+  extraCurrency: 0, // extra currency for Customisation
 
   isHovering: false, // is the mouse hovering over the bug
   optionsOpen: false,
