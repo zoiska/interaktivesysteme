@@ -50,6 +50,13 @@
   cursor: pointer;
 }
 
+#volume-slider-effects {
+  width: 100%;
+  padding: calc(1vh+1vw);
+  background-color: grey;
+  cursor: pointer;
+}
+
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
   input[type="range"] {
     overflow: hidden;
