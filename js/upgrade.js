@@ -38,6 +38,9 @@ export function loadUpgrades() {
         saveGame();
         updateDisplay();
 
+        document.getElementById('buysound').currentTime=0;
+        document.getElementById('buysound').play();
+
         cost = calculateCost(element);
         shopButton.querySelector(".cost").textContent = cost;
         shopButton.querySelector(".level").textContent = state.boughtUpgrades[element.id];
