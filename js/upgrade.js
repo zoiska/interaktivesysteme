@@ -1,6 +1,7 @@
 import { state } from "./config.js";
 import { saveGame } from "./storage.js";
 import { updateDisplay } from "./ui.js";
+import { buysoundclick, buttonclicksound } from "./audio.js";
 
 /* This function loads bought upgrades from upgrade_definitions.json and dynamically
   adds them as buttons into the shop sidebar and hooks them up with purchase logic */
@@ -24,7 +25,10 @@ export function loadUpgrades() {
       <span class="fpc">${element.fpc}</span>`;
 
     shopButton.addEventListener("click", () => {
+      // checks if user has enough currency
       if (state.currencyCounter >= cost) {
+
+        // subtracts currency, adds upgrade level
         state.currencyCounter -= cost;
         state.currencyPerClick += element.fpc;
         state.boughtUpgrades[element.id]++;
@@ -38,9 +42,15 @@ export function loadUpgrades() {
         saveGame();
         updateDisplay();
 
+        // if upgrade could be afforded, play a buy sound
+        buysoundclick();
+
         cost = calculateCost(element);
         shopButton.querySelector(".cost").textContent = cost;
         shopButton.querySelector(".level").textContent = state.boughtUpgrades[element.id];
+      } else {
+        // if upgrade could not be afforded, play a button press sound
+        buttonclicksound();
       }
     });
 

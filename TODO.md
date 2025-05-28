@@ -24,6 +24,7 @@
 - [x] Pull files apart
 - [x] Add customisation style and extra currency
 - [x] Added Music and mute button, volume slider
+- [x] Added Sounds
 - [ ] Add extra currency style and logic
 - [ ] Add customisation logic
 - [ ] Add prestige logic
