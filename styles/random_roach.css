@@ -1,0 +1,16 @@
+.roach {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  position: absolute;
+  width: 72px;
+  height: 72px;
+  z-index: 9999;
+}
+
+.roach.show {
+  opacity: 1;
+}
+
+.roach.fade-out {
+  opacity: 0;
+}
