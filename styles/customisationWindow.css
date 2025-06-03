@@ -4,24 +4,25 @@
 
 .customisationWindow {
   position: fixed;
-  align-self: center;
-  justify-self: center;
-  align-items: center;
-  justify-items: center;
-  padding: 0;
   width: 80%;
   height: 80%;
-  border-radius: 16px;
-  border: 2px solid white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: center;
+  justify-self: center;
+  border-radius: 1rem;
+  border: 0.125rem solid white;
   background: #062a34;
   color: white;
-  font-size: 30px;
+  font-size: clamp(1rem, 3vw, 3rem);
   z-index: 1000;
   transform: translateY(150%);
   transition: transform 0.3s ease;
   overflow: auto;
-  scrollbar-width: none; /* None */
-  -ms-overflow-style: none; /* IE/Edge */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-top: 5%;
 }
 
 .customisationWindow.open {
@@ -29,35 +30,49 @@
 }
 
 .customisationWindow::-webkit-scrollbar {
-  display: none; /* Safari, Chrome */
+  display: none;
 }
+
+/*=========================================
+                GRID CONTAINER                       
+=========================================*/
 
 .gridContainer {
-  border: solid 1px red;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  column-gap: 30px;
-  row-gap: 30px;
-  margin: 30px;
-  padding: 30px;
-  max-width: calc(3 * 140px + 10 * 30px);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
+  gap: 2rem;
+  width: 80%;
+  margin-top: 2rem;
 }
 
+/*=========================================
+                GRID ITEMS                                
+=========================================*/
+
 .gridItem {
-  border: solid 1px blue;
-  width: 140px;
-  height: 140px;
-  margin: 10px;
-  border-radius: 16px;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1; /* Makes it square */
+  border-radius: 1rem;
   background-color: grey;
+  border: 0.125rem solid #fff;
+  transition: background-color 0.2s;
 }
+
+.gridItem:hover {
+  background-color: #888;
+}
+
+/*=========================================
+              EXTRA CURRENCY                       
+=========================================*/
 
 #extraCurrency {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  column-gap: 20px;
+  column-gap: 1.25rem;
   font-size: clamp(2rem, 5vw, 4rem);
   color: #3ae616;
+  margin-top: 1rem;
 }
