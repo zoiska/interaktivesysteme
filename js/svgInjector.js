@@ -3,7 +3,6 @@ import { options_svg } from "../emojisvg/options_svg.js";
 import { prestige_svg } from "../emojisvg/prestige_svg.js";
 import { customisation_svg } from "../emojisvg/customisation_svg.js";
 import { shop_svg } from "../emojisvg/shop_svg.js";
-import { blueCappie_svg } from "../emojisvg/blueCappie_svg.js";
 
 export function injectLadybug() {
   const clickcontainer = document.querySelector("#clicker");
@@ -31,11 +30,16 @@ export function injectShop() {
 }
 
 export function injectItems() {
-  const itemscontainer1 = document.querySelector("#gridItem1");
-  itemscontainer1.innerHTML = blueCappie_svg;
-  const itemscontainer2 = document.querySelector("#gridItem2");
-  const itemscontainer3 = document.querySelector("#gridItem3");
-  const itemscontainer4 = document.querySelector("#gridItem4");
-  const itemscontainer5 = document.querySelector("#gridItem5");
-  const itemscontainer6 = document.querySelector("#gridItem6");
+  const items = customisations;
+  let c = 1;
+  const gridContainer = document.querySelector(".gridContainer");
+  items.forEach((element) => {
+    const item = document.createElement("div");
+    item.className = "gridItem";
+    item.id = `item${c}`;
+    const svgString = Object.values(element)[0];
+    item.innerHTML = svgString;
+    gridContainer.appendChild(item);
+    c++;
+  });
 }
