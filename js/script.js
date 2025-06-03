@@ -11,7 +11,7 @@ import {
   injectItems,
 } from "./svgInjector.js";
 import { updateCustomisation } from "./customisation.js";
-import { standardvolume, unmuteMute, buysoundclick, mainbuttonclicksound, buttonclicksound } from "./audio.js";
+import { standardvolume, unmuteMute, mainbuttonclicksound, buttonclicksound } from "./audio.js";
 
 function init() {
   injectLadybug();
@@ -40,7 +40,6 @@ function init() {
   const unmuteMuteButton = document.querySelector(".unmuteMuteButton");
 
   clicker.addEventListener("click", () => {
-
     // plays a sound if bug is pressed
     mainbuttonclicksound();
 
@@ -73,7 +72,6 @@ function init() {
   });
 
   unmuteMuteButton.addEventListener("click", () => {
-
     // plays sound if clicked
     buttonclicksound();
 
@@ -94,10 +92,9 @@ function init() {
   });
 
   clickableAreaOptions.addEventListener("click", () => {
-    
     // plays sound if clicked
     buttonclicksound();
-    
+
     // event listener for options button
     state.optionsOpen === false ? (state.optionsOpen = true) : (state.optionsOpen = false);
     sidebarOptions.classList.toggle("open");
@@ -112,10 +109,9 @@ function init() {
   });
 
   clickableAreaPrestige.addEventListener("click", () => {
-    
     // plays sound if clicked
     buttonclicksound();
-    
+
     // event listener for prestige button
     state.prestigeOpen === false ? (state.prestigeOpen = true) : (state.prestigeOpen = false);
     prestigeWindow.classList.toggle("open");
@@ -130,10 +126,9 @@ function init() {
   });
 
   customisationButton.addEventListener("click", () => {
-    
     // plays sound if clicked
     buttonclicksound();
-    
+
     // event listener for customisation button
     state.customisationOpen === false
       ? (state.customisationOpen = true)
@@ -150,10 +145,9 @@ function init() {
   });
 
   clickableAreaShop.addEventListener("click", () => {
-    
     // plays sound if clicked
     buttonclicksound();
-    
+
     // event listener for shop button
     state.shopOpen === false ? (state.shopOpen = true) : (state.shopOpen = false);
     sidebarShop.classList.toggle("open");
@@ -161,7 +155,6 @@ function init() {
   });
 
   statisticsButton.addEventListener("click", () => {
-    
     // plays sound if clicked
     buttonclicksound();
 
@@ -184,10 +177,9 @@ function init() {
   });
 
   sidebarBackdrop.addEventListener("click", () => {
-    
     // plays sound if backdrop clicked
     buttonclicksound();
-    
+
     // if backdrop clicked, close everything
     state.shopOpen = false;
     state.optionsOpen = false;
