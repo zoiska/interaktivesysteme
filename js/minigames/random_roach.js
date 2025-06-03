@@ -19,15 +19,20 @@ function makeRoach() {
   roach.addEventListener("click", () => {
     roach.classList.remove("show");
     roach.classList.add("fade-out");
-
     roach.addEventListener("transitioned", () => {
       roach.remove();
     });
-
     //logic
-
     // play sound
   });
+
+  setTimeout(() => {
+    roach.classList.remove("show");
+    roach.classList.add("fade-out");
+    roach.addEventListener("transitioned", () => {
+      roach.remove();
+    });
+  }, 5000);
 
   const offsetX = Math.floor((Math.random() * window.innerWidth) / 2);
   const offsetY = Math.floor((Math.random() * window.innerHeight) / 2);
