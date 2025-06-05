@@ -198,7 +198,23 @@ function init() {
   exportcsvButton.addEventListener("click", () => {
     // plays sound if clicked
     buttonclicksound();
-    // export csv
+
+    let csv = [];
+
+    for (let key in state.statistics) {
+      if (state.statistics.hasOwnProperty(key)) {
+        csv.push(`${key}:${state.statistics[key]}`);
+      }
+    }
+    const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+    const link = document.createElement("a");
+    link.setAttribute("href", URL.createObjectURL(blob));
+    link.setAttribute("download", "savegame.csv");
+    link.style.display = "none";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
     console.log("export csv clicked");
     state.exportcsvPopupOpen = false;
     exportcsvPopup.classList.remove("open");
