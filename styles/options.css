@@ -30,9 +30,7 @@
             OPTIONS-CONTENT                      
 =========================================*/
 
-.resetButton,
-.statisticsButton,
-.unmuteMuteButton {
+button {
   width: 100%;
   padding: 1vh;
   background-color: grey;
@@ -79,4 +77,78 @@
     cursor: ew-resize;
     background: #434343;
   }
+}
+
+/*=========================================
+                CSV-POPUP                      
+=========================================*/
+
+.exportcsvPopup {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: calc(50vh - (exportcsvPopupHeight / 2));
+  left: calc(50vw - (exportcsvPopupWidth / 2));
+  transform: translate(0%);
+  transition: z-index 0.1s ease-in-out;
+  align-self: center;
+  justify-self: center;
+  align-items: center;
+  width: 40vw;
+  max-width: fit-content;
+  height: auto;
+  padding: 20px;
+  gap: 10px;
+  overflow: wrap;
+  scrollbar-width: none;
+  background-color: #062a34;
+  color: white;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 20px, rgba(0, 0, 0, 0.22) 0px 6px 6px;
+  z-index: -10;
+}
+
+.exportcsvPopup.open {
+  z-index: 1100;
+}
+
+.expB {
+  max-width: 350px;
+}
+
+/*=========================================
+                RESET-POPUP                      
+=========================================*/
+
+.resetPopup {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: calc(50vh - (resetPopupHeight / 2));
+  left: calc(50vw - (resetPopupWidth / 2));
+  transform: translate(0%);
+  transition: z-index 0.1s ease-in-out;
+  align-self: center;
+  justify-self: center;
+  align-items: center;
+  width: 40vw;
+  max-width: fit-content;
+  height: auto;
+  padding: 20px;
+  gap: 10px;
+  overflow: wrap;
+  scrollbar-width: none;
+  background-color: #062a34;
+  color: white;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 20px, rgba(0, 0, 0, 0.22) 0px 6px 6px;
+  z-index: -10;
+}
+
+.resetPopup.open {
+  z-index: 1100;
+}
+
+.resB {
+  max-width: 350px;
 }

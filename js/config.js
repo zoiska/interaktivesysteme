@@ -9,6 +9,8 @@ export const state = {
   prestigeOpen: false,
   customisationOpen: false,
   statisticsOpen: false,
+  exportcsvPopupOpen: false,
+  resetPopupOpen: false,
 
   /* boughtUpgrades object initialization
   these are always 0 ! */
