@@ -32,7 +32,7 @@
 - [ ] Add customisation logic
 - [ ] Add prestige logic
 - [ ] Export CSV savefile
-- [ ] Reset confirmation and CSV prompt
+- [x] Reset confirmation and CSV prompt
 - [-] Sounds and Music
         - switch clothing sound, minigame sound
 - [-] Options menu logic
