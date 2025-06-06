@@ -1,4 +1,5 @@
 import { cockroach_svg } from "../../emojisvg/cockroach_svg.js";
+import { bugwalkfxsound, squishfxsound } from "../audio.js";
 
 let prevX = 0;
 let prevY = 0;
@@ -14,6 +15,8 @@ function makeRoach() {
 
   requestAnimationFrame(() => {
     roach.classList.add("show");
+    // plays sound if clicked
+    bugwalkfxsound();
   });
 
   roach.addEventListener("click", () => {
@@ -22,8 +25,9 @@ function makeRoach() {
     roach.addEventListener("transitioned", () => {
       roach.remove();
     });
-    //logic
-    // play sound
+    // logic
+    // plays sound if clicked
+    squishfxsound();
   });
 
   setTimeout(() => {
@@ -81,7 +85,7 @@ function makeRoach() {
 }
 
 (function loop() {
-  var rand = Math.round(Math.random() * (10 * 10000) + 10 * 10000);
+  var rand = Math.round(Math.random() * (2 * 10000) + 5 * 10000);
   setTimeout(() => {
     makeRoach();
     loop();
