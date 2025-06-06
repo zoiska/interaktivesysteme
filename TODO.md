@@ -31,13 +31,13 @@
         - how to get currency, spending, saving
 - [ ] Add customisation logic
 - [ ] Add prestige logic
-- [ ] Export CSV savefile
-- [ ] Reset confirmation and CSV prompt
+- [x] Export CSV savefile
+- [x] Reset confirmation and CSV prompt
 - [-] Sounds and Music
         - switch clothing sound, minigame sound
-- [-] Options menu logic
+- [x] Options menu logic
 - [ ] More hats
-- [ ] Achivements / Meilensteine
+- [ ] Achievements / Meilensteine
         - savesystem, display/window
 
 ---

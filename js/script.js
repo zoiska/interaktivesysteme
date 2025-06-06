@@ -38,6 +38,13 @@ function init() {
   const statisticsWindow = document.querySelector(".statisticsWindow");
   const statsContainer = document.querySelector(".statsContainer");
   const unmuteMuteButton = document.querySelector(".unmuteMuteButton");
+  const exportcsvbutton = document.querySelector(".exportcsv");
+  const exportcsvPopup = document.querySelector(".exportcsvPopup");
+  const resetPopup = document.querySelector(".resetPopup");
+  const resetConfirmButton = document.querySelector(".resetConfirmButton");
+  const closeExportPopup = document.querySelector(".closeExportPopup");
+  const closeResetPopup = document.querySelector(".closeResetPopup");
+  const exportcsvButton = document.querySelector(".exportcsvButton");
 
   clicker.addEventListener("click", () => {
     // plays a sound if bug is pressed
@@ -79,9 +86,30 @@ function init() {
   });
 
   resetButton.addEventListener("click", () => {
+    state.resetPopupOpen === false ? (state.resetPopupOpen = true) : (state.resetPopupOpen = false);
+    state.optionsOpen = false;
+    sidebarOptions.classList.remove("open");
+    // plays sound if clicked
+    buttonclicksound();
+
+    // toggle reset csv popup
+    resetPopup.classList.toggle("open");
+  });
+
+  resetConfirmButton.addEventListener("click", () => {
+    // plays sound if clicked
+    buttonclicksound();
     // reset button
     resetProgress();
     location.reload();
+  });
+
+  closeResetPopup.addEventListener("click", () => {
+    // plays sound if clicked
+    buttonclicksound();
+    state.resetPopupOpen = false;
+    resetPopup.classList.remove("open");
+    toggleSidebarBackdrop(sidebarBackdrop);
   });
 
   optionsToggle.addEventListener("keydown", (event) => {
@@ -154,6 +182,53 @@ function init() {
     toggleSidebarBackdrop(sidebarBackdrop);
   });
 
+  exportcsvbutton.addEventListener("click", () => {
+    state.exportcsvPopupOpen === false
+      ? (state.exportcsvPopupOpen = true)
+      : (state.exportcsvPopupOpen = false);
+    state.optionsOpen = false;
+    sidebarOptions.classList.remove("open");
+    // plays sound if clicked
+    buttonclicksound();
+
+    // toggle export csv popup
+    exportcsvPopup.classList.toggle("open");
+  });
+
+  exportcsvButton.addEventListener("click", () => {
+    // plays sound if clicked
+    buttonclicksound();
+
+    let csv = [];
+
+    for (let key in state.statistics) {
+      if (state.statistics.hasOwnProperty(key)) {
+        csv.push(`${key}:${state.statistics[key]}`);
+      }
+    }
+    const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+    const link = document.createElement("a");
+    link.setAttribute("href", URL.createObjectURL(blob));
+    link.setAttribute("download", "savegame.csv");
+    link.style.display = "none";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    console.log("export csv clicked");
+    state.exportcsvPopupOpen = false;
+    exportcsvPopup.classList.remove("open");
+    toggleSidebarBackdrop(sidebarBackdrop);
+  });
+
+  closeExportPopup.addEventListener("click", () => {
+    // plays sound if clicked
+    buttonclicksound();
+    state.exportcsvPopupOpen = false;
+    exportcsvPopup.classList.remove("open");
+    toggleSidebarBackdrop(sidebarBackdrop);
+  });
+
   statisticsButton.addEventListener("click", () => {
     // plays sound if clicked
     buttonclicksound();
@@ -186,6 +261,8 @@ function init() {
     state.prestigeOpen = false;
     state.customisationOpen = false;
     state.statisticsOpen = false;
+    state.exportcsvPopupOpen = false;
+    state.resetPopupOpen = false;
     sidebarOptions.classList.remove("open");
     optionsToggle.classList.remove("open");
     sidebarShop.classList.remove("open");
@@ -194,6 +271,8 @@ function init() {
     customisationWindow.classList.remove("open");
     prestigeWindow.classList.remove("open");
     statisticsWindow.classList.remove("open");
+    exportcsvPopup.classList.remove("open");
+    resetPopup.classList.remove("open");
   });
 
   loadSave();
