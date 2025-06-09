@@ -15,7 +15,7 @@ function makeRoach() {
 
   requestAnimationFrame(() => {
     roach.classList.add("show");
-    // plays sound if clicked
+    // plays sound if spawned
     bugwalkfxsound();
   });
 
@@ -28,6 +28,7 @@ function makeRoach() {
     // logic
     // plays sound if clicked
     squishfxsound();
+    document.getElementById("bugwalksound").pause();
   });
 
   setTimeout(() => {
