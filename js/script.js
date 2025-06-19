@@ -12,6 +12,7 @@ import {
 } from "./svgInjector.js";
 import { updateCustomisation } from "./customisation.js";
 import { standardvolume, unmuteMute, mainbuttonclicksound, buttonclicksound } from "./audio.js";
+import { loadAchievements } from "./achievement.js";
 
 function init() {
   injectLadybug();
@@ -20,6 +21,7 @@ function init() {
   injectCustomisation();
   injectShop();
   injectItems();
+  
 
   standardvolume();
 
@@ -279,6 +281,7 @@ function init() {
   loadUpgrades();
   updateCustomisation();
   updateDisplay();
+  loadAchievements();
 }
 
 function mainClickEvent() {
