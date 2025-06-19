@@ -41,5 +41,9 @@ export function injectItems() {
     item.innerHTML = svgString;
     gridContainer.appendChild(item);
     c++;
+    item.addEventListener("click", () => {
+      const container = document.querySelector("#hat-container");
+      container.innerHTML = svgString;
+    });
   });
 }

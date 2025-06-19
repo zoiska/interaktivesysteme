@@ -22,3 +22,13 @@
 #clickableArea:active {
   transform: scale(1.1);
 }
+
+#hat-container {
+  position: absolute;
+  top: calc(33% - 10vh);
+  left: calc(50% - 7.5vw);
+  z-index: 999;
+  width: 15vw;
+  height: 10vh;
+  border: 1px solid red;
+}
