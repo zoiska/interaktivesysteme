@@ -1,5 +1,5 @@
 /*=========================================
-            PRESTIGE WINDOW                      
+            ACHIEVEMENTS WINDOW                      
 =========================================*/
 
 .prestigeWindow {
@@ -22,3 +22,7 @@
 .prestigeWindow.open {
   transform: translate(0);
 }
+
+/*=========================================
+            ACHIEVEMENTS ITEMS
+=========================================*/
