@@ -30,7 +30,7 @@
             OPTIONS-CONTENT                      
 =========================================*/
 
-button {
+.optionsButton {
   width: 100%;
   padding: 1vh;
   background-color: grey;
