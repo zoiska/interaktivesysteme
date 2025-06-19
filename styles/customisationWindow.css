@@ -60,6 +60,10 @@
   transition: background-color 0.2s;
 }
 
+.gridItem.costly {
+  filter: brightness(0.4);
+}
+
 .gridItem:hover {
   background-color: #888;
 }

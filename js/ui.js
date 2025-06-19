@@ -14,6 +14,15 @@ export function updateDisplay() {
       button.classList.remove("costly");
     }
   });
+
+  document.querySelectorAll(".gridItem").forEach((item, i) => {
+    const cost = customisations[i].cost;
+    if (state.extraCurrency < cost) {
+      item.classList.add("costly");
+    } else {
+      item.classList.remove("costly");
+    }
+  });
 }
 
 /* This function toggles a div over the ladybug, under the sidebars if one or both

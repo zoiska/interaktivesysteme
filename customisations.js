@@ -1,5 +1,6 @@
 const customisations = [
   {
+    cost: 2,
     blueCappie_svg: `<svg
   id="emoji"
   viewBox="0 0 72 72"
@@ -103,6 +104,7 @@ const customisations = [
 </svg>`,
   },
   {
+    cost: 2,
     greenCappy_svg: `
     <svg id="emoji" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
   <g id="greenCappy">
@@ -119,6 +121,7 @@ const customisations = [
 </svg>`,
   },
   {
+    cost: 2,
     redCappy_svg: `
     <svg
    id="emoji"
@@ -214,6 +217,7 @@ const customisations = [
 </svg>`,
   },
   {
+    cost: 2,
     yellowCappy_svg: `
     <svg
    id="emoji"
@@ -309,6 +313,7 @@ const customisations = [
 </svg>`,
   },
   {
+    cost: 2,
     firemanshelmet_svg: `
     <svg id="emoji" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
   <g id="firemanshelmet">
@@ -328,6 +333,7 @@ const customisations = [
 </svg>`,
   },
   {
+    cost: 2,
     hairpick_svg: `
     <svg
    id="emoji"
@@ -429,6 +435,7 @@ const customisations = [
 `,
   },
   {
+    cost: 2,
     greaduationhat_svg: `
     <svg id="emoji" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
   <g id="graduationhat">
@@ -445,6 +452,7 @@ const customisations = [
 </svg>`,
   },
   {
+    cost: 2,
     helmet_svg: `
     <svg
    id="emoji"
@@ -595,6 +603,7 @@ const customisations = [
 </svg>`,
   },
   {
+    cost: 2,
     sunhat_svg: `
     <svg id="emoji" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
   <g id="sunhat">
@@ -614,6 +623,7 @@ const customisations = [
 </svg>`,
   },
   {
+    cost: 2,
     tophat_svg: `
     <svg id="emoji" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
   <g id="tophat">
@@ -627,6 +637,7 @@ const customisations = [
 `,
   },
   {
+    cost: 2,
     tophatwhite_svg: `
     <svg
    id="emoji"
@@ -693,6 +704,7 @@ const customisations = [
 </svg>`,
   },
   {
+    cost: 2,
     crown_svg: `<svg id="emoji" viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg">
   <g id="crown">
     <rect x="4" y="51.624" width="64" height="7.2668" fill="#FFFFFF"/>
