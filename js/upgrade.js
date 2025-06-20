@@ -2,6 +2,7 @@ import { state } from "./config.js";
 import { saveGame } from "./storage.js";
 import { updateDisplay } from "./ui.js";
 import { buysoundclick, buttonclicksound } from "./audio.js";
+import { checkUpgradeAchievements, loadAchievements } from "./achievement.js";
 
 /* This function loads bought upgrades from upgrade_definitions.json and dynamically
   adds them as buttons into the shop sidebar and hooks them up with purchase logic */
@@ -36,6 +37,9 @@ export function loadUpgrades() {
         state.statistics.total_currency_spent += cost;
 
         console.log(element.id + " clicked");
+
+        checkUpgradeAchievements();
+        loadAchievements();
 
         // localStorage behaves in a way i dont understand, saving and "reloading" is necessary after every change
         // may cause z-fighting style flickering, too bad!

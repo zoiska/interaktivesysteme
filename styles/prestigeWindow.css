@@ -52,7 +52,7 @@
     "desc"
     "achT";
   grid-template-rows: auto 1fr min-content auto;
-  gap: 5px;
+  gap: 20px;
 
   padding: 5px;
   width: 100%;
@@ -73,12 +73,14 @@
 
 .achievementItem .desc {
   grid-area: desc;
+  justify-self: center;
   align-self: center;
 }
 
 .achievementItem .achievedT {
   grid-area: achT;
-  align-self: flex-end;
+  justify-self: center;
+  align-self: center;
 }
 
 .achievementItem .achieved {
