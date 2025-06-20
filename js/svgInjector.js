@@ -3,6 +3,7 @@ import { options_svg } from "../emojisvg/options_svg.js";
 import { prestige_svg } from "../emojisvg/prestige_svg.js";
 import { customisation_svg } from "../emojisvg/customisation_svg.js";
 import { shop_svg } from "../emojisvg/shop_svg.js";
+import { splat_svg } from "../emojisvg/Splat-12--NicholasJudy456.js";
 import { mainClickEvent } from "./script.js";
 
 export function injectLadybug() {
@@ -87,4 +88,24 @@ export function transformClicker() {
     clickable.style.transform = "scale(1)";
     clickable1.style.transform = "scale(1)";
   });
+}
+
+export function injectSplat(area, x, y) {
+  const splat = document.createElement("div");
+  splat.className = "splat";
+  splat.innerHTML = splat_svg;
+  splat.style.position = "fixed";
+  splat.style.left = `${x}px`;
+  splat.style.top = `${y}px`;
+  splat.style.transform = `rotate(${Math.random() * 360}deg)`;
+
+  setTimeout(() => {
+    splat.style.pointerEvents = "none";
+    splat.classList.remove("show");
+    splat.classList.add("fade-out");
+    splat.addEventListener("transitioned", () => {
+      splat.remove();
+    });
+  }, 3000);
+  area.appendChild(splat);
 }
