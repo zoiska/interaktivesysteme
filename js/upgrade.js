@@ -27,7 +27,6 @@ export function loadUpgrades() {
     shopButton.addEventListener("click", () => {
       // checks if user has enough currency
       if (state.currencyCounter >= cost) {
-
         // subtracts currency, adds upgrade level
         state.currencyCounter -= cost;
         state.currencyPerClick += element.fpc;
@@ -58,7 +57,7 @@ export function loadUpgrades() {
   });
 }
 
-function calculateCost(element) {
+export function calculateCost(element) {
   return (
     element.base_cost *
     Math.round((state.boughtUpgrades[element.id] + 1) ** element.price_multiplier)
