@@ -9,6 +9,7 @@ import {
   injectPrestige,
   injectShop,
   injectItems,
+  transformClicker,
 } from "./svgInjector.js";
 import { updateCustomisation } from "./customisation.js";
 import { standardvolume, unmuteMute, mainbuttonclicksound, buttonclicksound } from "./audio.js";
@@ -25,6 +26,7 @@ function init() {
   standardvolume();
 
   const clicker = document.querySelector("#clickableArea");
+  const hatContainer = document.querySelector("#hat-container");
   const sidebarOptions = document.querySelector(".sidebarOptions");
   const sidebarShop = document.querySelector(".sidebarShop");
   const optionsToggle = document.querySelector(".optionsToggle");
@@ -51,6 +53,7 @@ function init() {
     // plays a sound if bug is pressed
     mainbuttonclicksound();
 
+    transformClicker();
     // the event listener for the ladybug click
     mainClickEvent();
   });
@@ -287,7 +290,7 @@ function init() {
   loadAchievements();
 }
 
-function mainClickEvent() {
+export function mainClickEvent() {
   state.currencyCounter += state.currencyPerClick;
   state.statistics.total_clicks++;
   state.statistics.total_currency += state.currencyPerClick;
