@@ -38,6 +38,7 @@ export function injectItems() {
     item.className = "gridItem";
     item.id = `item${c}`;
     const svgString = Object.values(element)[0];
+    const position = Object.keys(element)[0];
     item.innerHTML = svgString;
     gridContainer.appendChild(item);
     c++;

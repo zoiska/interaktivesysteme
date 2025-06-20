@@ -23,12 +23,12 @@
   transform: scale(1.1);
 }
 
-#hat-container {
+#hat-container #emoji {
   position: absolute;
-  top: calc(33% - 10vh);
-  left: calc(50% - 7.5vw);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -140%);
   z-index: 999;
-  width: 15vw;
-  height: 10vh;
-  border: 1px solid red;
+  width: 25vw;
+  height: 18vh;
 }
