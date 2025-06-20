@@ -27,16 +27,13 @@
 - [x] Added Sounds
 - [x] <a id="d3"></a>Roach-squasher minigame
 - [x] Minigame logic & sound
-- [ ] Add extra currency style and logic
-        - how to get currency, spending, saving
-- [ ] Add customisation logic
+- [ ] Add extra currency style and logic - how to get currency, spending, saving
+- [x] Add customisation logic
 - [x] Export CSV savefile
 - [x] Reset confirmation and CSV prompt
-- [-] Sounds and Music
-        - switch clothing sound, minigame sound
+- [-] Sounds and Music - switch clothing sound, minigame sound
 - [x] Options menu logic
-- [x] Achievements / Meilensteine
-        - savesystem, display/window
+- [x] Achievements / Meilensteine - savesystem, display/window
 
 ---
 
