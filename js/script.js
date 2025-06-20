@@ -12,6 +12,7 @@ import {
 } from "./svgInjector.js";
 import { updateCustomisation } from "./customisation.js";
 import { standardvolume, unmuteMute, mainbuttonclicksound, buttonclicksound } from "./audio.js";
+import { checkAchievements, checkUpgradeAchievements, loadAchievements } from "./achievement.js";
 
 function init() {
   injectLadybug();
@@ -279,6 +280,11 @@ function init() {
   loadUpgrades();
   updateCustomisation();
   updateDisplay();
+  loadAchievements();
+
+  checkAchievements();
+  checkUpgradeAchievements();
+  loadAchievements();
 }
 
 function mainClickEvent() {
@@ -286,6 +292,8 @@ function mainClickEvent() {
   state.statistics.total_clicks++;
   state.statistics.total_currency += state.currencyPerClick;
   updateDisplay();
+  checkAchievements(); // check achievements after click
+  loadAchievements(); // load achievements after click
   saveGame(); //save game, this will have to move at some point
 }
 

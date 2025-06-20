@@ -1,24 +1,90 @@
 /*=========================================
-            PRESTIGE WINDOW                      
+            ACHIEVEMENTS WINDOW                      
 =========================================*/
 
 .prestigeWindow {
-  display: flex;
   position: fixed;
-  align-self: center;
-  justify-self: center;
-  padding: none;
   width: 80%;
   height: 80%;
-  border-radius: 16px;
-  border: 2px, solid white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: center;
+  justify-self: center;
+  border-radius: 1rem;
+  border: 0.125rem solid white;
   background: #062a34;
   color: white;
+  font-size: clamp(1rem, 3vw, 3rem);
   z-index: 1000;
   transform: translateY(150%);
   transition: transform 0.3s ease;
+  overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-top: 5%;
+  padding-bottom: 5%;
 }
 
 .prestigeWindow.open {
   transform: translate(0);
+}
+
+/*=========================================
+            ACHIEVEMENTS ITEMS
+=========================================*/
+
+.gridContainerAchievements {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+  gap: 20px;
+  width: 90%;
+  margin-top: 2rem;
+
+  justify-items: center; /* Zentriert Items horizontal */
+  
+}
+
+.achievementItem {
+  display: grid;
+  grid-template-areas:
+    "name"
+    "desc"
+    "achT";
+  grid-template-rows: auto 1fr min-content auto;
+  gap: 20px;
+
+  padding: 5px;
+  width: 100%;
+
+  background-color: grey;
+  color: white;
+  cursor: pointer;
+  font-family: "MyFont", sans-serif;
+  font-display: swap;
+  font-size: clamp(0.5rem, 2vw, 1rem);
+}
+
+.achievementItem .name {
+  grid-area: name;
+  justify-self: center;
+  font-size: clamp(0.8rem, 3vw, 2rem);
+}
+
+.achievementItem .desc {
+  grid-area: desc;
+  justify-self: center;
+  align-self: center;
+}
+
+.achievementItem .achievedT {
+  grid-area: achT;
+  justify-self: center;
+  align-self: center;
+}
+
+.achievementItem .achieved {
+  grid-area: achi;
+  align-self: center;
+  justify-self: center;
 }
