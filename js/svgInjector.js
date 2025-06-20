@@ -3,6 +3,7 @@ import { options_svg } from "../emojisvg/options_svg.js";
 import { prestige_svg } from "../emojisvg/prestige_svg.js";
 import { customisation_svg } from "../emojisvg/customisation_svg.js";
 import { shop_svg } from "../emojisvg/shop_svg.js";
+import { mainClickEvent } from "./script.js";
 
 export function injectLadybug() {
   const clickcontainer = document.querySelector("#clicker");
@@ -37,14 +38,53 @@ export function injectItems() {
     const item = document.createElement("div");
     item.className = "gridItem";
     item.id = `item${c}`;
-    const svgString = Object.values(element)[1];
-    const position = Object.keys(element)[0];
+    const svgString = Object.values(element)[0];
+    const position1 = Object.values(element)[2];
+    const position2 = Object.values(element)[3];
     item.innerHTML = svgString;
     gridContainer.appendChild(item);
     c++;
     item.addEventListener("click", () => {
       const container = document.querySelector("#hat-container");
       container.innerHTML = svgString;
+      const container1 = document.querySelector("#hat-container #emoji");
+      container1.style.transform = `translate(${position1}%, ${position2}%)`;
+      container1.addEventListener("click", mainClickEvent);
     });
+  });
+}
+
+export function transformClicker() {
+  const clickable = document.querySelector("#clickableArea");
+  const clickable1 = document.querySelector("#clickableAreaHat");
+
+  clickable.addEventListener("pointerdown", () => {
+    clickable.style.transform = "scale(1.1)";
+    clickable1.style.transform = "scale(1.1)";
+  });
+
+  clickable.addEventListener("pointerup", () => {
+    clickable.style.transform = "scale(1)";
+    clickable1.style.transform = "scale(1)";
+  });
+
+  clickable.addEventListener("pointerleave", () => {
+    clickable.style.transform = "scale(1)";
+    clickable1.style.transform = "scale(1)";
+  });
+
+  clickable1.addEventListener("pointerdown", () => {
+    clickable.style.transform = "scale(1.1)";
+    clickable1.style.transform = "scale(1.1)";
+  });
+
+  clickable1.addEventListener("pointerup", () => {
+    clickable.style.transform = "scale(1)";
+    clickable1.style.transform = "scale(1)";
+  });
+
+  clickable1.addEventListener("pointerleave", () => {
+    clickable.style.transform = "scale(1)";
+    clickable1.style.transform = "scale(1)";
   });
 }
