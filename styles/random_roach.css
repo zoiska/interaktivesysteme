@@ -4,7 +4,7 @@
   position: absolute;
   width: 72px;
   height: 72px;
-  z-index: 800;
+  z-index: 810;
 }
 
 .roach.show {
@@ -18,12 +18,8 @@
 .splat {
   opacity: 1;
   transition: opacity 0.5s ease-out;
-  position: fixed;
+  position: absolute;
   z-index: 800;
-}
-
-.splat.show {
-  opacity: 1;
 }
 
 .splat.fade-out {

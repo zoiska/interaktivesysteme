@@ -103,7 +103,7 @@ export function injectSplat(area, x, y) {
     splat.style.pointerEvents = "none";
     splat.classList.remove("show");
     splat.classList.add("fade-out");
-    splat.addEventListener("transitioned", () => {
+    splat.addEventListener("transitionend", () => {
       splat.remove();
     });
   }, 3000);

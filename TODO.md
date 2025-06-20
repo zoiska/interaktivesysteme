@@ -27,13 +27,15 @@
 - [x] Added Sounds
 - [x] <a id="d3"></a>Roach-squasher minigame
 - [x] Minigame logic & sound
-- [ ] Add extra currency style and logic - how to get currency, spending, saving
-- [x] Add customisation logic
 - [x] Export CSV savefile
 - [x] Reset confirmation and CSV prompt
-- [-] Sounds and Music - switch clothing sound, minigame sound
 - [x] Options menu logic
+- [x] Add customisation logic
 - [x] Achievements / Meilensteine - savesystem, display/window
+- [-] Sounds and Music - switch clothing sound, minigame sound
+- [ ] Add extra currency style and logic - how to get currency, spending, saving
+- [ ] Floating numbers main clicker
+- [ ] Floating numbers minigame
 
 ---
 
@@ -49,7 +51,7 @@ When adding a new upgrade, add its definition to the upgrade_definitions.json fi
 - NO autoclick or bad autoclick progression
 - Overdriver: timed multiplier, charged by clicking
 - Multiplier: level based persistend multiplier, x number of clicks results in 0.01 mult increase, x increased with each level
-- Mini-games: reward currency, upgrades or timed multiplier [IN_PROGRESS](#d3)
+- Mini-games: reward currency, upgrades or timed multiplier [DONE](#d3)
 - CookieClickers style "cookie-showers"
 - Dynamic Ui
 - Over-the-top on screen effects and sounds
@@ -57,7 +59,7 @@ When adding a new upgrade, add its definition to the upgrade_definitions.json fi
 - Progression: Upgrade unlocks at milestones, maybe also visual changes
 - Secondary resource for specific occasions (milestone upgrades?)
 - Progress bar, graph or other evolution (callback to visual changes)
-- Random events [IN_PROGRESS](#d3)
+- Random events [DONE](#d3)
 - Stats - [DONE](#d2)
 - Prestige System: Permanent Upgrades and Cosmetics
 - Bug loan system: A certain upgrade, that will leave you with negative bugs fixed => UI glitchy/bugged
