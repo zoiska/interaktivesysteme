@@ -1,8 +1,5 @@
 import { cockroach_svg } from "../../emojisvg/cockroach_svg.js";
 import { bugwalkfxsound, squishfxsound } from "../audio.js";
-import { state } from "../config.js";
-import { updateCustomisation } from "../customisation.js";
-import { saveGame } from "../storage.js";
 
 let prevX = 0;
 let prevY = 0;
@@ -28,9 +25,7 @@ function makeRoach() {
     roach.addEventListener("transitioned", () => {
       roach.remove();
     });
-    state.extraCurrency += Math.floor(Math.random() * 5) + 1
-    updateCustomisation();
-    saveGame();
+    // logic
     // plays sound if clicked
     squishfxsound();
     document.getElementById("bugwalksound").pause();

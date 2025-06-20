@@ -5,18 +5,12 @@ export function saveGame() {
   localStorage.setItem("savedCurrencyPerClick", state.currencyPerClick);
   localStorage.setItem("savedBoughtUpgrades", JSON.stringify(state.boughtUpgrades));
   localStorage.setItem("savedStatistics", JSON.stringify(state.statistics));
-  localStorage.setItem("savedExtraCurrency", state.extraCurrency);
 }
 
 export function loadSave() {
   let rawSavedCurrency = localStorage.getItem("savedCurrentCurrency");
   if (rawSavedCurrency !== null) {
     state.currencyCounter = Number(rawSavedCurrency);
-  }
-
-  let rawSavedExtraCurrency = localStorage.getItem("savedExtraCurrency");
-  if (rawSavedExtraCurrency !== null) {
-    state.extraCurrency = Number(rawSavedExtraCurrency);
   }
 
   let rawSavedCurrencyPerClick = localStorage.getItem("savedCurrencyPerClick");

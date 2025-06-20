@@ -33,7 +33,7 @@ const upgrade_definitions = [
   },
   {
     id: "rubber_duck_debugger",
-    name: "Rubber Duck Debugger",
+    name: "Rubber Duck Debigger",
     base_cost: 50000,
     price_multiplier: 1.5,
     fpc: 1000,
