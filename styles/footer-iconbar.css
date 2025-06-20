@@ -6,6 +6,8 @@
   display: flex;
   justify-self: center;
   align-self: flex-end;
+  border: solid white 2px;
+  background: grey;
 }
 
 .shopToggle,
