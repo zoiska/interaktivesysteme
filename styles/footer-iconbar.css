@@ -3,6 +3,7 @@
 =========================================*/
 
 .footerWrapper {
+  position: absolute;
   display: flex;
   justify-self: center;
   align-self: flex-end;
