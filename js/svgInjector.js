@@ -48,7 +48,7 @@ export function injectItems() {
     item.addEventListener("click", () => {
       const container = document.querySelector("#hat-container");
       container.innerHTML = svgString;
-      const container1 = document.querySelector("#hat-container #clickableAreaHat");
+      const container1 = document.querySelector("#hat-container #emoji");
       container1.style.transform = `translate(${position1}%, ${position2}%)`;
       container1.addEventListener("click", mainClickEvent);
     });
