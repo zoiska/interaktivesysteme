@@ -6,7 +6,7 @@ export const state = {
   isHovering: false, // is the mouse hovering over the bug
   optionsOpen: false,
   shopOpen: false,
-  prestigeOpen: false,
+  achievementsOpen: false,
   customisationOpen: false,
   statisticsOpen: false,
   exportcsvPopupOpen: false,

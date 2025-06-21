@@ -1,6 +1,6 @@
 import { ladybug_svg } from "../emojisvg/ladybug_svg.js";
 import { options_svg } from "../emojisvg/options_svg.js";
-import { prestige_svg } from "../emojisvg/prestige_svg.js";
+import { achievements_svg } from "../emojisvg/achievements_svg.js";
 import { customisation_svg } from "../emojisvg/customisation_svg.js";
 import { shop_svg } from "../emojisvg/shop_svg.js";
 import { splat_svg } from "../emojisvg/Splat-12--NicholasJudy456.js";
@@ -16,9 +16,9 @@ export function injectOptions() {
   optionscontainer.innerHTML = options_svg;
 }
 
-export function injectPrestige() {
-  const prestigecontainer = document.querySelector("#prestige-svg-container");
-  prestigecontainer.innerHTML = prestige_svg;
+export function injectAchievements() {
+  const achievementscontainer = document.querySelector("#achievements-svg-container");
+  achievementscontainer.innerHTML = achievements_svg;
 }
 
 export function injectCustomisation() {
