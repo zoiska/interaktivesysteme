@@ -3,9 +3,10 @@ import { state } from "./config.js";
 export function saveGame() {
   localStorage.setItem("savedCurrentCurrency", state.currencyCounter);
   localStorage.setItem("savedCurrencyPerClick", state.currencyPerClick);
+  localStorage.setItem("savedExtraCurrency", state.extraCurrency);
   localStorage.setItem("savedBoughtUpgrades", JSON.stringify(state.boughtUpgrades));
   localStorage.setItem("savedStatistics", JSON.stringify(state.statistics));
-  localStorage.setItem("savedExtraCurrency", state.extraCurrency);
+  localStorage.setItem("savedBoughtHats", JSON.stringify(state.boughtHats));
 }
 
 export function loadSave() {
@@ -35,6 +36,18 @@ export function loadSave() {
       // magic 😮
       if (parsedUpgrades.hasOwnProperty(key)) {
         state.boughtUpgrades[key] = parsedUpgrades[key];
+      }
+    }
+  }
+
+  //save bought hats
+  const savedBoughtHats = localStorage.getItem("savedBoughtHats");
+  const parsedBoughtHats = JSON.parse(savedBoughtHats);
+
+  if (parsedBoughtHats !== null) {
+    for (let key in state.boughtHats) {
+      if (parsedBoughtHats.hasOwnProperty(key)) {
+        state.boughtHats[key] = parsedBoughtHats[key];
       }
     }
   }

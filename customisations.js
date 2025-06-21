@@ -104,6 +104,7 @@ const customisations = [
     cost: 2,
     position1: -50,
     position2: -140,
+    id: "blueCappie_svg",
   },
   {
     greenCappy_svg: `
@@ -123,6 +124,7 @@ const customisations = [
     cost: 2,
     position1: -50,
     position2: -140,
+    id: "greenCappy_svg",
   },
   {
     redCappy_svg: `
@@ -221,6 +223,7 @@ const customisations = [
     cost: 2,
     position1: -50,
     position2: -140,
+    id: "redCappy_svg",
   },
   {
     yellowCappy_svg: `
@@ -319,6 +322,7 @@ const customisations = [
     cost: 2,
     position1: -50,
     position2: -140,
+    id: "yellowCappy_svg",
   },
   {
     firemanshelmet_svg: `
@@ -341,6 +345,7 @@ const customisations = [
     cost: 2,
     position1: -50,
     position2: -140,
+    id: "firemanshelmet_svg",
   },
   {
     greaduationhat_svg: `
@@ -360,6 +365,7 @@ const customisations = [
     cost: 2,
     position1: -50,
     position2: -150,
+    id: "greaduationhat_svg",
   },
   {
     helmet_svg: `
@@ -513,6 +519,7 @@ const customisations = [
     cost: 2,
     position1: -50,
     position2: -130,
+    id: "helmet_svg",
   },
   {
     sunhat_svg: `
@@ -535,6 +542,7 @@ const customisations = [
     cost: 2,
     position1: -50,
     position2: -140,
+    id: "sunhat_svg",
   },
   {
     tophat_svg: `
@@ -551,6 +559,7 @@ const customisations = [
     cost: 2,
     position1: -50,
     position2: -160,
+    id: "tophat_svg",
   },
   {
     tophatwhite_svg: `
@@ -620,6 +629,7 @@ const customisations = [
     cost: 2,
     position1: -50,
     position2: -160,
+    id: "tophatwhite_svg",
   },
   {
     crown_svg: `<svg id="emoji" viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg">
@@ -649,5 +659,13 @@ const customisations = [
     cost: 2,
     position1: -49,
     position2: -160,
+    id: "crown_svg",
+  },
+  {
+    empty_svg: `<svg></svg>`,
+    cost: 0,
+    position1: -50,
+    position2: -140,
+    id: "empty_svg",
   },
 ];

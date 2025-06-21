@@ -161,6 +161,7 @@ function init() {
   customisationButton.addEventListener("click", () => {
     // plays sound if clicked
     buttonclicksound();
+    updateDisplay();
 
     // event listener for customisation button
     state.customisationOpen === false

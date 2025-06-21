@@ -41,6 +41,21 @@ export const state = {
     tech_debt_digger: 0,
   },
 
+  boughtHats: {
+    blueCappie_svg: false,
+    greenCappy_svg: false,
+    redCappy_svg: false,
+    yellowCappy_svg: false,
+    firemanshelmet_svg: false,
+    greaduationhat_svg: false,
+    helmet_svg: false,
+    sunhat_svg: false,
+    tophat_svg: false,
+    tophatwhite_svg: false,
+    crown_svg: false,
+    empty_svg: true,
+  },
+
   statistics: {
     total_clicks: 0,
     total_currency: 0,
