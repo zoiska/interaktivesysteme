@@ -22,6 +22,9 @@ export function updateDisplay() {
     } else {
       item.classList.remove("costly");
     }
+    if (state.boughtHats[customisations[i].id] === true) {
+      item.classList.remove("costly");
+    }
   });
 }
 
