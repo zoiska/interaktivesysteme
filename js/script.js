@@ -6,7 +6,7 @@ import {
   injectCustomisation,
   injectLadybug,
   injectOptions,
-  injectPrestige,
+  injectAchievements,
   injectShop,
   injectItems,
   transformClicker,
@@ -18,7 +18,7 @@ import { checkAchievements, checkUpgradeAchievements, loadAchievements } from ".
 function init() {
   injectLadybug();
   injectOptions();
-  injectPrestige();
+  injectAchievements();
   injectCustomisation();
   injectShop();
   injectItems();
@@ -26,15 +26,14 @@ function init() {
   standardvolume();
 
   const clicker = document.querySelector("#clickableArea");
-  const hatContainer = document.querySelector("#hat-container");
   const sidebarOptions = document.querySelector(".sidebarOptions");
   const sidebarShop = document.querySelector(".sidebarShop");
   const optionsToggle = document.querySelector(".optionsToggle");
   const shopToggle = document.querySelector(".shopToggle");
   const resetButton = document.querySelector(".resetButton");
   const sidebarBackdrop = document.querySelector(".sidebarBackdrop");
-  const prestigeButton = document.querySelector(".prestigeButton");
-  const prestigeWindow = document.querySelector(".prestigeWindow");
+  const achievementsButton = document.querySelector(".achievementsButton");
+  const achievementsWindow = document.querySelector(".achievementsWindow");
   const customisationButton = document.querySelector(".customisationButton");
   const customisationWindow = document.querySelector(".customisationWindow");
   const statisticsButton = document.querySelector(".statisticsButton");
@@ -133,20 +132,22 @@ function init() {
     toggleSidebarBackdrop(sidebarBackdrop);
   });
 
-  prestigeButton.addEventListener("keydown", (event) => {
-    // disable keyboard input for prestige button
+  achievementsButton.addEventListener("keydown", (event) => {
+    // disable keyboard input for achievements button
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
     }
   });
 
-  clickableAreaPrestige.addEventListener("click", () => {
+  clickableAreaAchievements.addEventListener("click", () => {
     // plays sound if clicked
     buttonclicksound();
 
-    // event listener for prestige button
-    state.prestigeOpen === false ? (state.prestigeOpen = true) : (state.prestigeOpen = false);
-    prestigeWindow.classList.toggle("open");
+    // event listener for achievements button
+    state.achievementsOpen === false
+      ? (state.achievementsOpen = true)
+      : (state.achievementsOpen = false);
+    achievementsWindow.classList.toggle("open");
     toggleSidebarBackdrop(sidebarBackdrop);
   });
 

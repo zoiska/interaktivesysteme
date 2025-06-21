@@ -2,7 +2,7 @@
             ACHIEVEMENTS WINDOW                      
 =========================================*/
 
-.prestigeWindow {
+.achievementsWindow {
   position: fixed;
   width: 80%;
   height: 80%;
@@ -26,7 +26,7 @@
   padding-bottom: 5%;
 }
 
-.prestigeWindow.open {
+.achievementsWindow.open {
   transform: translate(0);
 }
 
@@ -42,7 +42,6 @@
   margin-top: 2rem;
 
   justify-items: center; /* Zentriert Items horizontal */
-  
 }
 
 .achievementItem {
