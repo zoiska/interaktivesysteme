@@ -41,7 +41,7 @@
   width: 90%;
   margin-top: 2rem;
 
-  justify-items: center; /* Zentriert Items horizontal */
+  justify-items: center;
 }
 
 .achievementItem {

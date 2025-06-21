@@ -3,7 +3,6 @@ import { state } from "./config.js";
 
 export function checkAchievements() {
   achievements.forEach((ach) => {
-    // Beispiel: prüfe auf total_clicks, du kannst das für andere Bedingungen anpassen
     if (!ach.achieved && state.statistics.total_clicks >= ach.condition) {
       ach.achieved = true;
     }
@@ -12,7 +11,6 @@ export function checkAchievements() {
 
 export function checkUpgradeAchievements() {
   upgradeAchievements.forEach((ach, idx) => {
-    // Die Reihenfolge in upgradeAchievements muss der Reihenfolge in upgrade_definitions.js entsprechen!
     const upgradeKeys = Object.keys(state.boughtUpgrades);
     const upgradeKey = upgradeKeys[idx];
     if (!ach.achieved && state.boughtUpgrades[upgradeKey] >= ach.condition) {
@@ -23,7 +21,7 @@ export function checkUpgradeAchievements() {
 
 export function loadAchievements() {
   const gridContainerAchievement = document.querySelector(".gridContainerAchievements");
-  gridContainerAchievement.innerHTML = ""; // clear before rendering
+  gridContainerAchievement.innerHTML = "";
 
   [...achievements, ...upgradeAchievements]
     //.filter((ach) => ach.achieved)
