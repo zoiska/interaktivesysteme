@@ -42,8 +42,8 @@ export const state = {
   },
 
   boughtHats: {
-    blueCappie_svg: true,
-    greenCappy_svg: true,
+    blueCappie_svg: false,
+    greenCappy_svg: false,
     redCappy_svg: false,
     yellowCappy_svg: false,
     firemanshelmet_svg: false,
