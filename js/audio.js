@@ -1,3 +1,5 @@
+import { muteButton, loudButton } from "./svgInjector.js";
+
 let audio = document.getElementById("bgaudio");
 let volume = document.getElementById("volume-slider");
 let buysound = document.getElementById("buysound");
