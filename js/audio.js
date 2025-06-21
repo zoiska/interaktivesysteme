@@ -70,7 +70,9 @@ export function standardvolume() {
 export function unmuteMute() {
   if (!audio.paused) {
     audio.pause();
+    muteButton();
   } else {
     audio.play();
+    loudButton();
   }
 }
