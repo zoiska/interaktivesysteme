@@ -33,7 +33,7 @@ export function toggleSidebarBackdrop(sidebarBackdrop) {
   if (
     state.optionsOpen === true ||
     state.shopOpen === true ||
-    state.prestigeOpen === true ||
+    state.achievementsOpen === true ||
     state.customisationOpen === true ||
     state.statisticsOpen === true
   ) {

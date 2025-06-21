@@ -13,7 +13,7 @@
 
 .shopToggle,
 .optionsToggle,
-.prestigeButton,
+.achievementsButton,
 .customisationButton {
   display: flex;
   z-index: 500;

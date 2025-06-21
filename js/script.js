@@ -263,7 +263,7 @@ function init() {
     // if backdrop clicked, close everything
     state.shopOpen = false;
     state.optionsOpen = false;
-    state.prestigeOpen = false;
+    state.achievementsOpen = false;
     state.customisationOpen = false;
     state.statisticsOpen = false;
     state.exportcsvPopupOpen = false;
@@ -274,7 +274,7 @@ function init() {
     shopToggle.classList.remove("open");
     sidebarBackdrop.classList.remove("open");
     customisationWindow.classList.remove("open");
-    prestigeWindow.classList.remove("open");
+    achievementsWindow.classList.remove("open");
     statisticsWindow.classList.remove("open");
     exportcsvPopup.classList.remove("open");
     resetPopup.classList.remove("open");
