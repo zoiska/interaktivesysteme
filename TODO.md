@@ -32,8 +32,9 @@
 - [x] Options menu logic
 - [x] Add customisation logic
 - [x] Achievements / Meilensteine - savesystem, display/window
-- [-] Sounds and Music - switch clothing sound, minigame sound
-- [ ] Add extra currency style and logic - how to get currency, spending, saving
+- [x] Sounds and Music - switch clothing sound, minigame sound
+- [x] Add extra currency style and logic - how to get currency, spending, saving
+- [ ] Options menu restructuring
 - [ ] Floating numbers main clicker
 - [ ] Floating numbers minigame
 

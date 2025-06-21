@@ -2,6 +2,8 @@ import { ladybug_svg } from "../emojisvg/ladybug_svg.js";
 import { options_svg } from "../emojisvg/options_svg.js";
 import { achievements_svg } from "../emojisvg/achievements_svg.js";
 import { customisation_svg } from "../emojisvg/customisation_svg.js";
+import { mute_svg } from "../emojisvg/mute1F507.js";
+import { loud_svg } from "../emojisvg/loud1F50A.js";
 import { shop_svg } from "../emojisvg/shop_svg.js";
 import { splat_svg } from "../emojisvg/Splat-12--NicholasJudy456.js";
 import { mainClickEvent } from "./script.js";
@@ -9,6 +11,16 @@ import { updateCustomisation } from "./customisation.js";
 import { buttonclicksound, zipperfxsound } from "./audio.js";
 import { state } from "./config.js";
 import { updateDisplay } from "./ui.js";
+
+export function muteButton() {
+  const muteButtonContianer = document.querySelector(".unmuteMuteButton");
+  muteButtonContianer.innerHTML = mute_svg;
+}
+
+export function loudButton() {
+  const loudButtonContainer = document.querySelector(".unmuteMuteButton");
+  loudButtonContainer.innerHTML = loud_svg;
+}
 
 export function injectLadybug() {
   const clickcontainer = document.querySelector("#clicker");

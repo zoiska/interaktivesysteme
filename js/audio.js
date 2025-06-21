@@ -1,3 +1,5 @@
+import { muteButton, loudButton } from "./svgInjector.js";
+
 let audio = document.getElementById("bgaudio");
 let volume = document.getElementById("volume-slider");
 let buysound = document.getElementById("buysound");
@@ -68,7 +70,9 @@ export function standardvolume() {
 export function unmuteMute() {
   if (!audio.paused) {
     audio.pause();
+    muteButton();
   } else {
     audio.play();
+    loudButton();
   }
 }
