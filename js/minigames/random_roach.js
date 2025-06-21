@@ -3,9 +3,7 @@ import { bugwalkfxsound, squishfxsound } from "../audio.js";
 import { state } from "../config.js";
 import { updateCustomisation } from "../customisation.js";
 import { saveGame } from "../storage.js";
-
-let prevX = 0;
-let prevY = 0;
+import { injectSplat } from "../svgInjector.js";
 
 function makeRoach() {
   const area = document.querySelector(".roach_area");
@@ -23,12 +21,18 @@ function makeRoach() {
   });
 
   roach.addEventListener("click", () => {
+    roach.style.pointerEvents = "none";
+    const roachRect = roach.getBoundingClientRect();
+    const x = roachRect.left;
+    const y = roachRect.top;
+
+    injectSplat(area, x, y);
     roach.classList.remove("show");
     roach.classList.add("fade-out");
-    roach.addEventListener("transitioned", () => {
+    roach.addEventListener("transitionend", () => {
       roach.remove();
     });
-    state.extraCurrency += Math.floor(Math.random() * 5) + 1
+    state.extraCurrency += Math.floor(Math.random() * 5) + 1;
     updateCustomisation();
     saveGame();
     // plays sound if clicked
@@ -37,6 +41,7 @@ function makeRoach() {
   });
 
   setTimeout(() => {
+    roach.style.pointerEvents = "none";
     roach.classList.remove("show");
     roach.classList.add("fade-out");
     roach.addEventListener("transitioned", () => {
@@ -63,6 +68,9 @@ function makeRoach() {
   const phaseX2 = Math.random() * 2 * Math.PI;
   const phaseY1 = Math.random() * 2 * Math.PI;
   const phaseY2 = Math.random() * 2 * Math.PI;
+
+  let prevX = 0;
+  let prevY = 0;
 
   function animateRoach() {
     const time = Date.now() / 1000; // seconds

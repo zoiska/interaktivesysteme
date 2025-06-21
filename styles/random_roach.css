@@ -1,10 +1,10 @@
 .roach {
   opacity: 0;
-  transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.1s ease-in-out;
   position: absolute;
   width: 72px;
   height: 72px;
-  z-index: 9999;
+  z-index: 810;
 }
 
 .roach.show {
@@ -12,5 +12,16 @@
 }
 
 .roach.fade-out {
+  opacity: 0;
+}
+
+.splat {
+  opacity: 1;
+  transition: opacity 0.5s ease-out;
+  position: absolute;
+  z-index: 800;
+}
+
+.splat.fade-out {
   opacity: 0;
 }
