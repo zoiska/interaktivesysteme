@@ -1,4 +1,4 @@
-<svg id="emoji" viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg">
+export const ruby_svg = `<svg id="emoji" viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg">
   <g id="color" transform="matrix(.7071 -.7071 .7071 .7071 -9.056 41.86)">
     <polygon fill="#d22f27" points="36 64.08 68 23.35 56.38 11.98 16.38 11.98 4 23.35"/>
     <polyline fill="#ea5a47" points="37.37 62.34 55.75 23.35 36 11.98 56.38 11.98 68 23.35 37.37 62.34"/>
@@ -11,4 +11,4 @@
     <line x1="36" x2="55.75" y1="11.98" y2="23.35"/>
     <polygon points="36 64.08 68 23.35 56.38 11.98 16.38 11.98 4 23.35"/>
   </g>
-</svg>
+</svg>`;

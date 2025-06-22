@@ -34,9 +34,13 @@
 - [x] Achievements / Meilensteine - savesystem, display/window
 - [x] Sounds and Music - switch clothing sound, minigame sound
 - [x] Add extra currency style and logic - how to get currency, spending, saving
-- [ ] Options menu restructuring
-- [ ] Floating numbers main clicker
-- [ ] Floating numbers minigame
+- [x] Options menu restructuring
+- [x] Floating numbers main clicker
+- [x] Floating numbers minigame
+- [x] Expand statistics
+- [x] Save Achievements
+- [ ] Visualise hat ownership
+- [ ] Esc to close windows/sidebars/popups
 
 ---
 

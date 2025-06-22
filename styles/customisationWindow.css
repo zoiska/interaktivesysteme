@@ -72,13 +72,10 @@
               EXTRA CURRENCY                       
 =========================================*/
 
-#extraCurrency {
-  display: flex;
+#extraCurrency svg {
   flex-direction: row;
   height: 2.5rem;
   justify-content: center;
   column-gap: 1.25rem;
-  font-size: 2rem;
-  color: #3ae616;
   margin-top: 1rem;
 }

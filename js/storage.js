@@ -7,6 +7,7 @@ export function saveGame() {
   localStorage.setItem("savedBoughtUpgrades", JSON.stringify(state.boughtUpgrades));
   localStorage.setItem("savedStatistics", JSON.stringify(state.statistics));
   localStorage.setItem("savedBoughtHats", JSON.stringify(state.boughtHats));
+  localStorage.setItem("savedAchievements", JSON.stringify(state.achievements));
 }
 
 export function loadSave() {
@@ -60,6 +61,18 @@ export function loadSave() {
     for (let key in state.statistics) {
       if (parsedStatistics.hasOwnProperty(key)) {
         state.statistics[key] = parsedStatistics[key];
+      }
+    }
+  }
+
+  //save achievement object
+  const savedAchievements = localStorage.getItem("savedAchievements");
+  const parsedAchievements = JSON.parse(savedAchievements);
+
+  if (parsedAchievements !== null) {
+    for (let key in state.achievements) {
+      if (parsedAchievements.hasOwnProperty(key)) {
+        state.achievements[key] = parsedAchievements[key];
       }
     }
   }

@@ -6,11 +6,13 @@ import { mute_svg } from "../emojisvg/mute1F507.js";
 import { loud_svg } from "../emojisvg/loud1F50A.js";
 import { shop_svg } from "../emojisvg/shop_svg.js";
 import { splat_svg } from "../emojisvg/Splat-12--NicholasJudy456.js";
+import { ruby_svg } from "../emojisvg/ruby_E04F.js";
 import { mainClickEvent } from "./script.js";
 import { updateCustomisation } from "./customisation.js";
 import { buttonclicksound, zipperfxsound } from "./audio.js";
 import { state } from "./config.js";
 import { updateDisplay } from "./ui.js";
+import { saveGame } from "./storage.js";
 
 export function muteButton() {
   const muteButtonContianer = document.querySelector(".unmuteMuteButton");
@@ -47,6 +49,10 @@ export function injectShop() {
   shopcontainer.innerHTML = shop_svg;
 }
 
+export function injectRuby() {
+  return ruby_svg;
+}
+
 export function injectItems() {
   const items = customisations;
   let c = 1;
@@ -59,13 +65,13 @@ export function injectItems() {
     const cost = Object.values(element)[1];
     const position1 = Object.values(element)[2];
     const position2 = Object.values(element)[3];
-    console.log(state.boughtHats[element.id]);
-    const bought = state.boughtHats[element.id];
+
     item.innerHTML = svgString;
     gridContainer.appendChild(item);
     c++;
     item.addEventListener("click", () => {
-      if (bought) {
+      const bought = state.boughtHats[element.id];
+      if (bought === true) {
         zipperfxsound();
         updateCustomisation();
         const container = document.querySelector("#hat-container");
@@ -74,53 +80,26 @@ export function injectItems() {
         container1.style.transform = `translate(${position1}%, ${position2}%)`;
         container1.addEventListener("click", mainClickEvent);
       } else {
-        state.extraCurrency < cost ? buttonclicksound : (state.extraCurrency -= cost);
-        state.boughtHats[element.id] = true;
-        zipperfxsound();
-        updateCustomisation();
-        const container = document.querySelector("#hat-container");
-        container.innerHTML = svgString;
-        const container1 = document.querySelector("#hat-container #emoji");
-        container1.style.transform = `translate(${position1}%, ${position2}%)`;
-        container1.addEventListener("click", mainClickEvent);
+        if (state.extraCurrency < cost) {
+          buttonclicksound();
+          return;
+        } else {
+          state.extraCurrency -= cost;
+          state.statistics.total_rubys_spent += cost;
+          state.boughtHats[element.id] = true;
+          state.statistics.total_hats_bought++;
+          zipperfxsound();
+          updateCustomisation();
+          const container = document.querySelector("#hat-container");
+          container.innerHTML = svgString;
+          const container1 = document.querySelector("#hat-container #emoji");
+          container1.style.transform = `translate(${position1}%, ${position2}%)`;
+          container1.addEventListener("click", mainClickEvent);
+          saveGame();
+        }
       }
       updateDisplay();
     });
-  });
-}
-
-export function transformClicker() {
-  const clickable = document.querySelector("#clickableArea");
-  const clickable1 = document.querySelector("#clickableAreaHat");
-
-  clickable.addEventListener("pointerdown", () => {
-    clickable.style.transform = "scale(1.1)";
-    clickable1.style.transform = "scale(1.1)";
-  });
-
-  clickable.addEventListener("pointerup", () => {
-    clickable.style.transform = "scale(1)";
-    clickable1.style.transform = "scale(1)";
-  });
-
-  clickable.addEventListener("pointerleave", () => {
-    clickable.style.transform = "scale(1)";
-    clickable1.style.transform = "scale(1)";
-  });
-
-  clickable1.addEventListener("pointerdown", () => {
-    clickable.style.transform = "scale(1.1)";
-    clickable1.style.transform = "scale(1.1)";
-  });
-
-  clickable1.addEventListener("pointerup", () => {
-    clickable.style.transform = "scale(1)";
-    clickable1.style.transform = "scale(1)";
-  });
-
-  clickable1.addEventListener("pointerleave", () => {
-    clickable.style.transform = "scale(1)";
-    clickable1.style.transform = "scale(1)";
   });
 }
 

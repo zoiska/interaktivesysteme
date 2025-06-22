@@ -1,0 +1,4 @@
+.floating-numbers-container {
+  pointer-events: none;
+  flex-direction: row;
+}

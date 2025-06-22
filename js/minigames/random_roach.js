@@ -4,6 +4,7 @@ import { state } from "../config.js";
 import { updateCustomisation } from "../customisation.js";
 import { saveGame } from "../storage.js";
 import { injectSplat } from "../svgInjector.js";
+import { floatingRuby } from "../floatingnumbers.js";
 
 function makeRoach() {
   const area = document.querySelector(".roach_area");
@@ -20,7 +21,7 @@ function makeRoach() {
     bugwalkfxsound();
   });
 
-  roach.addEventListener("click", () => {
+  roach.addEventListener("click", (event) => {
     roach.style.pointerEvents = "none";
     const roachRect = roach.getBoundingClientRect();
     const x = roachRect.left;
@@ -32,7 +33,13 @@ function makeRoach() {
     roach.addEventListener("transitionend", () => {
       roach.remove();
     });
-    state.extraCurrency += Math.floor(Math.random() * 5) + 1;
+    let newExtraCurrency = Math.floor(Math.random() * 5) + 1;
+    state.extraCurrency += newExtraCurrency;
+    state.statistics.total_rubys_collected += newExtraCurrency;
+
+    state.statistics.total_roaches_caught++;
+
+    floatingRuby(event, newExtraCurrency);
     updateCustomisation();
     saveGame();
     // plays sound if clicked
@@ -42,9 +49,10 @@ function makeRoach() {
 
   setTimeout(() => {
     roach.style.pointerEvents = "none";
+    state.statistics.total_roaches_missed++;
     roach.classList.remove("show");
     roach.classList.add("fade-out");
-    roach.addEventListener("transitioned", () => {
+    roach.addEventListener("transitionend", () => {
       roach.remove();
     });
   }, 5000);
