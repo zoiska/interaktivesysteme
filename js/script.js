@@ -9,12 +9,12 @@ import {
   injectAchievements,
   injectShop,
   injectItems,
-  transformClicker,
   muteButton,
 } from "./svgInjector.js";
-import { updateCustomisation } from "./customisation.js";
+import { updateCustomisation, transformClicker } from "./customisation.js";
 import { standardvolume, unmuteMute, mainbuttonclicksound, buttonclicksound } from "./audio.js";
 import { checkAchievements, checkUpgradeAchievements, loadAchievements } from "./achievement.js";
+import { floatingNumbers } from "./floatingnumbers.js";
 
 function init() {
   injectLadybug();
@@ -50,13 +50,12 @@ function init() {
   const closeResetPopup = document.querySelector(".closeResetPopup");
   const exportcsvButton = document.querySelector(".exportcsvButton");
 
-  clicker.addEventListener("click", () => {
+  clicker.addEventListener("click", (event) => {
     // plays a sound if bug is pressed
     mainbuttonclicksound();
 
-    transformClicker();
     // the event listener for the ladybug click
-    mainClickEvent();
+    mainClickEvent(event);
   });
 
   clicker.addEventListener("mouseenter", () => {
@@ -294,11 +293,13 @@ function init() {
   loadAchievements();
 }
 
-export function mainClickEvent() {
+export function mainClickEvent(event) {
   state.currencyCounter += state.currencyPerClick;
   state.statistics.total_clicks++;
   state.statistics.total_currency += state.currencyPerClick;
+  floatingNumbers(event);
   updateDisplay();
+  transformClicker();
   checkAchievements(); // check achievements after click
   loadAchievements(); // load achievements after click
   saveGame(); //save game, this will have to move at some point

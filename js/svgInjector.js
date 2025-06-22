@@ -6,6 +6,7 @@ import { mute_svg } from "../emojisvg/mute1F507.js";
 import { loud_svg } from "../emojisvg/loud1F50A.js";
 import { shop_svg } from "../emojisvg/shop_svg.js";
 import { splat_svg } from "../emojisvg/Splat-12--NicholasJudy456.js";
+import { ruby_svg } from "../emojisvg/ruby_E04F.js";
 import { mainClickEvent } from "./script.js";
 import { updateCustomisation } from "./customisation.js";
 import { buttonclicksound, zipperfxsound } from "./audio.js";
@@ -47,6 +48,10 @@ export function injectShop() {
   shopcontainer.innerHTML = shop_svg;
 }
 
+export function injectRuby() {
+  return ruby_svg;
+}
+
 export function injectItems() {
   const items = customisations;
   let c = 1;
@@ -65,7 +70,7 @@ export function injectItems() {
     gridContainer.appendChild(item);
     c++;
     item.addEventListener("click", () => {
-      if (bought) {
+      if (bought === true) {
         zipperfxsound();
         updateCustomisation();
         const container = document.querySelector("#hat-container");
@@ -74,15 +79,19 @@ export function injectItems() {
         container1.style.transform = `translate(${position1}%, ${position2}%)`;
         container1.addEventListener("click", mainClickEvent);
       } else {
-        state.extraCurrency < cost ? buttonclicksound : (state.extraCurrency -= cost);
-        state.boughtHats[element.id] = true;
-        zipperfxsound();
-        updateCustomisation();
-        const container = document.querySelector("#hat-container");
-        container.innerHTML = svgString;
-        const container1 = document.querySelector("#hat-container #emoji");
-        container1.style.transform = `translate(${position1}%, ${position2}%)`;
-        container1.addEventListener("click", mainClickEvent);
+        if (state.extraCurrency < cost) {
+          buttonclicksound();
+          return;
+        } else {
+          state.boughtHats[element.id] = true;
+          zipperfxsound();
+          updateCustomisation();
+          const container = document.querySelector("#hat-container");
+          container.innerHTML = svgString;
+          const container1 = document.querySelector("#hat-container #emoji");
+          container1.style.transform = `translate(${position1}%, ${position2}%)`;
+          container1.addEventListener("click", mainClickEvent);
+        }
       }
       updateDisplay();
     });
