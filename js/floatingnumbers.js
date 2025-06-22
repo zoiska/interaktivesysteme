@@ -9,8 +9,10 @@ export function floatingNumbers(event) {
   floaty.innerHTML = `+${state.currencyPerClick}`;
   floaty.style.opacity = "1";
   floaty.style.position = "fixed";
-  floaty.style.left = `calc(${event.clientX}px + ${Math.random() * 50 - 25}px)`;
-  floaty.style.top = `calc(${event.clientY}px - 60px)`;
+  const x = typeof event.clientX === "number" ? event.clientX : window.innerWidth / 2;
+  const y = typeof event.clientY === "number" ? event.clientY : window.innerHeight / 2;
+  floaty.style.left = `calc(${x}px + ${Math.random() * 50 - 25}px)`;
+  floaty.style.top = `calc(${y}px - 60px)`;
   floaty.style.transform = `translateY(-${Math.random() * 50 + 25}px) translateX(-50%)`;
   floaty.style.color = "white";
   floaty.style.zIndex = "1000";

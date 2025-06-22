@@ -12,6 +12,7 @@ import { updateCustomisation } from "./customisation.js";
 import { buttonclicksound, zipperfxsound } from "./audio.js";
 import { state } from "./config.js";
 import { updateDisplay } from "./ui.js";
+import { saveGame } from "./storage.js";
 
 export function muteButton() {
   const muteButtonContianer = document.querySelector(".unmuteMuteButton");
@@ -64,12 +65,12 @@ export function injectItems() {
     const cost = Object.values(element)[1];
     const position1 = Object.values(element)[2];
     const position2 = Object.values(element)[3];
-    console.log(state.boughtHats[element.id]);
-    const bought = state.boughtHats[element.id];
+
     item.innerHTML = svgString;
     gridContainer.appendChild(item);
     c++;
     item.addEventListener("click", () => {
+      const bought = state.boughtHats[element.id];
       if (bought === true) {
         zipperfxsound();
         updateCustomisation();
@@ -83,7 +84,10 @@ export function injectItems() {
           buttonclicksound();
           return;
         } else {
+          state.extraCurrency -= cost;
+          state.statistics.total_rubys_spent += cost;
           state.boughtHats[element.id] = true;
+          state.statistics.total_hats_bought++;
           zipperfxsound();
           updateCustomisation();
           const container = document.querySelector("#hat-container");
@@ -91,6 +95,7 @@ export function injectItems() {
           const container1 = document.querySelector("#hat-container #emoji");
           container1.style.transform = `translate(${position1}%, ${position2}%)`;
           container1.addEventListener("click", mainClickEvent);
+          saveGame();
         }
       }
       updateDisplay();

@@ -51,9 +51,6 @@ function init() {
   const exportcsvButton = document.querySelector(".exportcsvButton");
 
   clicker.addEventListener("click", (event) => {
-    // plays a sound if bug is pressed
-    mainbuttonclicksound();
-
     // the event listener for the ladybug click
     mainClickEvent(event);
   });
@@ -78,7 +75,7 @@ function init() {
           duration: 60,
         }
       );
-      mainClickEvent();
+      mainClickEvent(event);
     }
   });
 
@@ -247,14 +244,26 @@ function init() {
 
     statsContainer.innerHTML = `
     <dl>
-    <dt>Total clicks: </dt>
+    <dt>Total amount of Clicks: </dt>
     <dd>${state.statistics.total_clicks}</dd>
-    <dt>Total currency: </dt>
+    <dt>Total amount of Currency: </dt>
     <dd>${state.statistics.total_currency}</dd>
-    <dt>Total currency spent: </dt>
+    <dt>Total amount of Currency spent: </dt>
     <dd>${state.statistics.total_currency_spent}</dd>
-    <dt>Total amount of upgrades bought: </dt>
+    <dt>Total amount of Upgrades bought: </dt>
     <dd>${state.statistics.total_upgrades_bought}</dd>
+    <dt>Total number of Rubys collected: </dt>
+    <dd>${state.statistics.total_rubys_collected}</dd>
+    <dt>Total amount of Rubys spent: </dt>
+    <dd>${state.statistics.total_rubys_spent}</dd>
+    <dt>Total number of Roaches caught: </dt>
+    <dd>${state.statistics.total_roaches_caught}</dd>
+    <dt>Total number of Roaches missed: </dt>
+    <dd>${state.statistics.total_roaches_missed}</dd>
+    <dt>Total number of Hats bought: </dt>
+    <dd>${state.statistics.total_hats_bought}</dd>
+    <dt>Total number of Achievements earned: </dt>
+    <dd>${state.statistics.total_achievements_earned}</dd>
     </dl>`;
   });
 
@@ -291,12 +300,16 @@ function init() {
   checkAchievements();
   checkUpgradeAchievements();
   loadAchievements();
+
+  saveGame();
 }
 
 export function mainClickEvent(event) {
   state.currencyCounter += state.currencyPerClick;
   state.statistics.total_clicks++;
   state.statistics.total_currency += state.currencyPerClick;
+  // plays a sound if bug is pressed
+  mainbuttonclicksound();
   floatingNumbers(event);
   updateDisplay();
   transformClicker();

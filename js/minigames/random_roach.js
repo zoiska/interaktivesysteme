@@ -35,6 +35,10 @@ function makeRoach() {
     });
     let newExtraCurrency = Math.floor(Math.random() * 5) + 1;
     state.extraCurrency += newExtraCurrency;
+    state.statistics.total_rubys_collected += newExtraCurrency;
+
+    state.statistics.total_roaches_caught++;
+
     floatingRuby(event, newExtraCurrency);
     updateCustomisation();
     saveGame();
@@ -45,6 +49,7 @@ function makeRoach() {
 
   setTimeout(() => {
     roach.style.pointerEvents = "none";
+    state.statistics.total_roaches_missed++;
     roach.classList.remove("show");
     roach.classList.add("fade-out");
     roach.addEventListener("transitionend", () => {

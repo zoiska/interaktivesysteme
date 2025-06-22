@@ -1,5 +1,6 @@
 import { achievements, upgradeAchievements } from "../achievements.js";
 import { state } from "./config.js";
+import { saveGame } from "./storage.js";
 
 export function checkAchievements() {
   achievements.forEach((ach) => {
@@ -36,5 +37,15 @@ export function loadAchievements() {
         achievementItem.style.filter = "brightness(0.4)";
       }
       gridContainerAchievement.appendChild(achievementItem);
+
+      saveAchStats(element);
     });
+}
+
+function saveAchStats(element) {
+  if (state.achievements[element.id] === 0 && element.achieved === true) {
+    state.achievements[element.id] = 1;
+    state.statistics.total_achievements_earned++;
+    saveGame();
+  }
 }
