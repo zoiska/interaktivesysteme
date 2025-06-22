@@ -44,7 +44,7 @@ function makeRoach() {
     roach.style.pointerEvents = "none";
     roach.classList.remove("show");
     roach.classList.add("fade-out");
-    roach.addEventListener("transitioned", () => {
+    roach.addEventListener("transitionend", () => {
       roach.remove();
     });
   }, 5000);
