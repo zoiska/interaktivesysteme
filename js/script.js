@@ -1,7 +1,7 @@
 import { state } from "./config.js";
 import { saveGame, loadSave, resetProgress } from "./storage.js";
 import { loadUpgrades } from "./upgrade.js";
-import { updateDisplay, toggleSidebarBackdrop } from "./ui.js";
+import { updateDisplay, toggleSidebarBackdrop, closeItAll } from "./ui.js";
 import {
   injectCustomisation,
   injectLadybug,
@@ -75,6 +75,22 @@ function init() {
         }
       );
       mainClickEvent(event);
+    }
+
+    if (event.key === "Escape") {
+      closeItAll(
+        buttonclicksound,
+        sidebarOptions,
+        optionsToggle,
+        sidebarShop,
+        shopToggle,
+        sidebarBackdrop,
+        customisationWindow,
+        achievementsWindow,
+        statisticsWindow,
+        exportcsvPopup,
+        resetPopup
+      );
     }
   });
 
@@ -267,27 +283,19 @@ function init() {
   });
 
   sidebarBackdrop.addEventListener("click", () => {
-    // plays sound if backdrop clicked
-    buttonclicksound();
-
-    // if backdrop clicked, close everything
-    state.shopOpen = false;
-    state.optionsOpen = false;
-    state.achievementsOpen = false;
-    state.customisationOpen = false;
-    state.statisticsOpen = false;
-    state.exportcsvPopupOpen = false;
-    state.resetPopupOpen = false;
-    sidebarOptions.classList.remove("open");
-    optionsToggle.classList.remove("open");
-    sidebarShop.classList.remove("open");
-    shopToggle.classList.remove("open");
-    sidebarBackdrop.classList.remove("open");
-    customisationWindow.classList.remove("open");
-    achievementsWindow.classList.remove("open");
-    statisticsWindow.classList.remove("open");
-    exportcsvPopup.classList.remove("open");
-    resetPopup.classList.remove("open");
+    closeItAll(
+      buttonclicksound,
+      sidebarOptions,
+      optionsToggle,
+      sidebarShop,
+      shopToggle,
+      sidebarBackdrop,
+      customisationWindow,
+      achievementsWindow,
+      statisticsWindow,
+      exportcsvPopup,
+      resetPopup
+    );
   });
 
   loadSave();
