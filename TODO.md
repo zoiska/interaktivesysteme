@@ -39,7 +39,7 @@
 - [x] Floating numbers minigame
 - [x] Expand statistics
 - [x] Save Achievements
-- [ ] Visualise hat ownership
+- [x] Visualise hat ownership
 - [ ] Esc to close windows/sidebars/popups
 
 ---

@@ -45,3 +45,39 @@ export function toggleSidebarBackdrop(sidebarBackdrop) {
     sidebarBackdrop.classList.remove("open");
   }
 }
+
+export function closeItAll(
+  buttonclicksound,
+  sidebarOptions,
+  optionsToggle,
+  sidebarShop,
+  shopToggle,
+  sidebarBackdrop,
+  customisationWindow,
+  achievementsWindow,
+  statisticsWindow,
+  exportcsvPopup,
+  resetPopup
+) {
+  // plays sound if backdrop clicked or esc pressed
+  buttonclicksound();
+
+  // close eeeveeeeryyyythiiiinng
+  state.shopOpen = false;
+  state.optionsOpen = false;
+  state.achievementsOpen = false;
+  state.customisationOpen = false;
+  state.statisticsOpen = false;
+  state.exportcsvPopupOpen = false;
+  state.resetPopupOpen = false;
+  sidebarOptions.classList.remove("open");
+  optionsToggle.classList.remove("open");
+  sidebarShop.classList.remove("open");
+  shopToggle.classList.remove("open");
+  sidebarBackdrop.classList.remove("open");
+  customisationWindow.classList.remove("open");
+  achievementsWindow.classList.remove("open");
+  statisticsWindow.classList.remove("open");
+  exportcsvPopup.classList.remove("open");
+  resetPopup.classList.remove("open");
+}
