@@ -40,7 +40,7 @@
 - [x] Expand statistics
 - [x] Save Achievements
 - [x] Visualise hat ownership
-- [ ] Esc to close windows/sidebars/popups
+- [x] Esc to close windows/sidebars/popups
 
 ---
 
