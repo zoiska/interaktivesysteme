@@ -67,11 +67,15 @@ export function injectItems() {
     const position2 = Object.values(element)[3];
 
     item.innerHTML = svgString;
+    if (state.boughtHats[element.id] === true) {
+      item.style.backgroundColor = "rgba(144,238,144,0.5)";
+    }
     gridContainer.appendChild(item);
     c++;
     item.addEventListener("click", () => {
       const bought = state.boughtHats[element.id];
       if (bought === true) {
+        item.style.backgroundColor = "rgba(144,238,144,0.5)";
         zipperfxsound();
         updateCustomisation();
         const container = document.querySelector("#hat-container");
@@ -95,6 +99,7 @@ export function injectItems() {
           const container1 = document.querySelector("#hat-container #emoji");
           container1.style.transform = `translate(${position1}%, ${position2}%)`;
           container1.addEventListener("click", mainClickEvent);
+          item.style.backgroundColor = "rgba(144,238,144,0.5)";
           saveGame();
         }
       }

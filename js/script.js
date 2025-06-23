@@ -22,7 +22,6 @@ function init() {
   injectAchievements();
   injectCustomisation();
   injectShop();
-  injectItems();
   muteButton();
 
   standardvolume();
@@ -292,11 +291,16 @@ function init() {
   });
 
   loadSave();
+
+  // this must happen after load save since it requires the bought Hats array to exist
+  injectItems();
+
   loadUpgrades();
   updateCustomisation();
   updateDisplay();
-  loadAchievements();
 
+  // Kevin ...
+  loadAchievements();
   checkAchievements();
   checkUpgradeAchievements();
   loadAchievements();
@@ -315,7 +319,7 @@ export function mainClickEvent(event) {
   transformClicker();
   checkAchievements(); // check achievements after click
   loadAchievements(); // load achievements after click
-  saveGame(); //save game, this will have to move at some point
+  saveGame();
 }
 
 window.onload = init();
