@@ -220,9 +220,12 @@ function init() {
 
     let csv = [];
 
-    for (let key in state.statistics) {
-      if (state.statistics.hasOwnProperty(key)) {
-        csv.push(`${key}:${state.statistics[key]}`);
+    for (let key in state) {
+      if (state.hasOwnProperty(key)) {
+        if (typeof state[key] === "object") {
+          csv.push(`${key}:${JSON.stringify(state[key])}`);
+        }
+        csv.push(`${key}:${state[key]}`);
       }
     }
     const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
