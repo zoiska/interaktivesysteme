@@ -9,6 +9,7 @@ import {
   injectAchievements,
   injectShop,
   injectItems,
+  injectProhibited,
   muteButton,
 } from "./svgInjector.js";
 import { updateCustomisation, transformClicker } from "./customisation.js";
@@ -305,6 +306,7 @@ function init() {
 
   // this must happen after load save since it requires the bought Hats array to exist
   injectItems();
+  injectProhibited();
 
   loadUpgrades();
   updateCustomisation();
