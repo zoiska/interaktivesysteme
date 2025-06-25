@@ -76,7 +76,6 @@ export function injectItems() {
       const bought = state.boughtHats[element.id];
       if (bought === true) {
         item.style.backgroundColor = "rgba(144,238,144,0.5)";
-
         item.style.zIndex = 1;
         zipperfxsound();
         updateCustomisation();
