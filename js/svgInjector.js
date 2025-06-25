@@ -77,6 +77,7 @@ export function injectItems() {
       const bought = state.boughtHats[element.id];
       if (bought === true) {
         item.style.backgroundColor = "rgba(144,238,144,0.5)";
+        item.style.zIndex = 1;
         zipperfxsound();
         updateCustomisation();
         const container = document.querySelector("#hat-container");
@@ -89,6 +90,7 @@ export function injectItems() {
           buttonclicksound();
           return;
         } else {
+          item.style.zIndex = 1;
           state.extraCurrency -= cost;
           state.statistics.total_rubys_spent += cost;
           state.boughtHats[element.id] = true;

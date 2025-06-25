@@ -38,6 +38,11 @@ Thumbs.db
 qmake_qmake_immediate*
 .qmake.stash
 
+node_modules/
+Bug-Clicker-win32-x64
+interaktivesysteme-win32-x64/
+1F41E_color.ico
+
 # qtcreator generated files
 *.pro.user*
 CMakeLists.txt.user*
