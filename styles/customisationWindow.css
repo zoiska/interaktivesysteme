@@ -47,6 +47,14 @@
 }
 
 /*=========================================
+                GRID CONTAINER                       
+=========================================*/
+
+#hat-Container {
+  position: relative;
+}
+
+/*=========================================
                 GRID ITEMS                                
 =========================================*/
 
@@ -58,6 +66,7 @@
   background-color: grey;
   border: 0.125rem solid #fff;
   transition: background-color 0.2s;
+  z-index: 900;
 }
 
 .gridItem.costly {

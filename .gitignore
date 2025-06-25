@@ -38,6 +38,8 @@ Thumbs.db
 qmake_qmake_immediate*
 .qmake.stash
 
+node_modules/
+
 # qtcreator generated files
 *.pro.user*
 CMakeLists.txt.user*
