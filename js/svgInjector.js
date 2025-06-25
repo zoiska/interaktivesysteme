@@ -7,6 +7,7 @@ import { loud_svg } from "../emojisvg/loud1F50A.js";
 import { shop_svg } from "../emojisvg/shop_svg.js";
 import { splat_svg } from "../emojisvg/Splat-12--NicholasJudy456.js";
 import { ruby_svg } from "../emojisvg/ruby_E04F.js";
+import { prohibited_svg } from "../emojisvg/prohibited_1F6AB.js";
 import { mainClickEvent } from "./script.js";
 import { updateCustomisation } from "./customisation.js";
 import { buttonclicksound, zipperfxsound } from "./audio.js";
@@ -126,4 +127,9 @@ export function injectSplat(area, x, y) {
     });
   }, 3000);
   area.appendChild(splat);
+}
+
+export function injectProhibited() {
+  const prohibitedContainer = document.querySelector("#item12");
+  prohibitedContainer.innerHTML = prohibited_svg;
 }
