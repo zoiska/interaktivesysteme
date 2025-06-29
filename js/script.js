@@ -10,7 +10,7 @@ import {
   injectShop,
   injectItems,
   injectProhibited,
-  muteButton,
+  loudButton,
 } from "./svgInjector.js";
 import { updateCustomisation, transformClicker } from "./customisation.js";
 import { standardvolume, unmuteMute, mainbuttonclicksound, buttonclicksound } from "./audio.js";
@@ -23,7 +23,7 @@ function init() {
   injectAchievements();
   injectCustomisation();
   injectShop();
-  muteButton();
+  loudButton();
 
   standardvolume();
 

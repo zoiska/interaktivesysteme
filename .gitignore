@@ -39,7 +39,9 @@ qmake_qmake_immediate*
 .qmake.stash
 
 node_modules/
-Bug-Clicker-win32-x64
+Bug-Clicker-win32-x64/
+dist/
+build/
 interaktivesysteme-win32-x64/
 
 # qtcreator generated files
